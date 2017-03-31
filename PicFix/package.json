@@ -1,5 +1,5 @@
 {
-  "name": "ionic-app-base",
+  "name": "ionic-hello-world",
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
   "private": true,
@@ -32,5 +32,15 @@
   "devDependencies": {
     "@ionic/app-scripts": "1.1.4",
     "typescript": "2.0.9"
-  }
+  },
+  "cordovaPlugins": [
+    "cordova-plugin-whitelist",
+    "cordova-plugin-console",
+    "cordova-plugin-statusbar",
+    "cordova-plugin-device",
+    "cordova-plugin-splashscreen",
+    "ionic-plugin-keyboard"
+  ],
+  "cordovaPlatforms": [],
+  "description": "PicFix: An Ionic project"
 }

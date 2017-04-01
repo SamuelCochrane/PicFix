@@ -27,7 +27,7 @@ export class CameraPage {
     	height: window.screen.height - 300, 
     	camera: "back", 
     	toBack: false, 
-    	tapPhoto: true, 
+    	tapPhoto: false, 
     	previewDrag: false
     });
 

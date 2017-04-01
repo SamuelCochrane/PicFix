@@ -15,4 +15,20 @@
 
 <ion-content padding>
 
+  <button ion-button icon-only (click) = takePicture()  id="buttonTakePhoto">
+  	<ion-icon name="camera"></ion-icon>
+  </button>
+
+
+  <button ion-button icon-only (click) = switchCamera()  id="buttonSwitchCamera" >
+  	<ion-icon name="reverse-camera"></ion-icon>
+  </button>
+
+  <button ion-button icon-only id="buttonToggleFlash">
+  	<ion-icon name="flash"></ion-icon>
+  </button>
+<div class="pictures">
+      <p><img id="originalPicture" width="200"/></p>
+    </div>
+  <!--<button ion-button> BUTTON </button>-->
 </ion-content>

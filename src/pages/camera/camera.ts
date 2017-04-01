@@ -16,11 +16,46 @@ export class CameraPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
+  /*Called first time page is opened*/
   ionViewDidLoad() {
     console.log('ionViewDidLoad CameraPage');
 
-    CameraPreview.startCamera({x: 50, y: 50, width: window.screen.width - 100, height: window.screen.height - 100, camera: "front", toBack: false, tapPhoto: true, previewDrag: false});
+    CameraPreview.startCamera({
+    	x: 50, 
+    	y: 225, 
+    	width: window.screen.width - 50, 
+    	height: window.screen.height - 300, 
+    	camera: "back", 
+    	toBack: false, 
+    	tapPhoto: true, 
+    	previewDrag: false
+    });
+
 
   }
+
+ /*Called every time view is closed*/
+  ionViewWillLeave() {
+  	CameraPreview.hide();
+  }
+
+
+ /*Called every time view is opened*/
+  ionViewWillEnter() {
+ 	CameraPreview.show();
+  }
+
+
+  switchCamera() {
+  	CameraPreview.switchCamera();
+  }
+
+  takePicture(){
+    CameraPreview.takePicture(function(imgData){
+    	var previewImage = document.getElementById('originalPicture') as HTMLImageElement;
+     	previewImage.src = 'data:image/jpeg;base64,' + imgData;
+    });
+  }
+
 
 }

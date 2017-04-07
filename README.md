@@ -4,7 +4,7 @@ camera view in html element (bottom right),
 in-app camera buttons (top left),
 html img with source set to most recent picture (middle left)
 
-![screenshot of camera functionality](http://lmsotfy.com/so.png)
+![screenshot of camera functionality](imgs/cameraTest1.png)
 
 
 ---------

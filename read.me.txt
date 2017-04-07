@@ -1,4 +1,0 @@
-Test Readme
-
-
-ionic run android -l -c

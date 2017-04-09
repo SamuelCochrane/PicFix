@@ -10,19 +10,35 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class GlobalVars {
   
-  public reportPath: any;
+  //public reportPath: any;
 
   constructor() {
     console.log('Hello GlobalVars Provider');
-    this.reportPath = "";
+    //this.reportPath = "";
   }
 
-  setReportPath(value:String) {
-  	this.reportPath = value;
+  public createCurrentReport() {
+  	var report = {
+  		reporterInfo: {
+  			firstName : "Slem",
+  			lastName : ""
+  		},
+  		images: {
+  		},
+  		otherInfo: {
+
+  		}
+  	}
+  	localStorage.setItem('currentReport', JSON.stringify(report));
   }
 
-  getReportPath() {
-  	return this.reportPath;
+  public getCurrentReport() {
+  	return JSON.parse(localStorage.getItem('currentReport'));
+  }
+
+  public updateCurrentReport(updatedReport:JSON) {
+  	localStorage.setItem('currentReport', JSON.stringify(updatedReport));
   }
 
 }
+

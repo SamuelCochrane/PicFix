@@ -2,6 +2,11 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { CameraConfirmPage } from '../camera-confirm/camera-confirm';
+
+
+
+import { GlobalVars } from '../../providers/global-vars'
+
 declare var CameraPreview: any;
 
 
@@ -12,7 +17,7 @@ declare var CameraPreview: any;
 export class CameraPage {
 	
   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars) {}
 
   /*Called first time page is opened*/
   ionViewDidLoad() {
@@ -54,7 +59,15 @@ export class CameraPage {
 
     	//save pic to local storage
      	var pic = 'data:image/jpeg;base64,' + imgData;
-     	localStorage.setItem('imgData', pic);
+
+     	var report = _this.gVars.getCurrentReport();
+
+     	report.images = pic;
+
+     	_this.gVars.updateCurrentReport(report);
+
+
+		//console.log(report.images);
 
      	//launch the camera confirm page
      	_this.navCtrl.push(CameraConfirmPage, {});
@@ -74,6 +87,12 @@ export class CameraPage {
   		/*this.navCtrl.push(CameraConfirmPage, {
   			picture: pictureData
   		});*/
+
+
+  }
+
+  createReportFile() {
+
 
   }
 

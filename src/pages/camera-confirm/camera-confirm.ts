@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+
 /*
   Generated class for the CameraConfirm page.
 
@@ -12,11 +13,31 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'camera-confirm.html'
 })
 export class CameraConfirmPage {
+  public picture:any;
+  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     console.log('ionViewDidLoad CameraConfirmPage');
+
+    var previewImage = document.getElementById('confirmPicture') as HTMLImageElement;
+	
+
+	var pic = localStorage.getItem('imgData');
+     
+     previewImage.src = pic;
+  
+  }
+
+
+  confirmImage() {
+  	//this.navCtrl.push([form page]);
+  }
+
+  retryImage() {
+  	this.navCtrl.pop();
   }
 
 }

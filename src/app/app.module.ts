@@ -7,7 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { CameraPage } from '../pages/camera/camera';
-
+import { CameraConfirmPage } from '../pages/camera-confirm/camera-confirm';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,6 +19,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ContactPage,
     HomePage,
     CameraPage,
+    CameraConfirmPage,
     TabsPage
   ],
   imports: [
@@ -31,6 +32,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ContactPage,
     HomePage,
     CameraPage,
+    CameraConfirmPage,
     TabsPage
   ],
   providers: [

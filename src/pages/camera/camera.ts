@@ -1,19 +1,17 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+
+import { CameraConfirmPage } from '../camera-confirm/camera-confirm';
 declare var CameraPreview: any;
 
-/*
-  Generated class for the Camera page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-camera',
   templateUrl: 'camera.html'
 })
 export class CameraPage {
-
+	
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   /*Called first time page is opened*/
@@ -25,7 +23,7 @@ export class CameraPage {
     	y: 225, 
     	width: window.screen.width - 90, 
     	height: window.screen.height - 300, 
-    	camera: "back", 
+    	camera: "front", 
     	toBack: false, 
     	tapPhoto: false, 
     	previewDrag: false
@@ -51,10 +49,32 @@ export class CameraPage {
   }
 
   takePicture(){
+  	var _this = this;
     CameraPreview.takePicture(function(imgData){
-    	var previewImage = document.getElementById('originalPicture') as HTMLImageElement;
-     	previewImage.src = 'data:image/jpeg;base64,' + imgData;
-    });
+
+    	//save pic to local storage
+     	var pic = 'data:image/jpeg;base64,' + imgData;
+     	localStorage.setItem('imgData', pic);
+
+     	//launch the camera confirm page
+     	_this.navCtrl.push(CameraConfirmPage, {});
+
+    } 
+		
+
+
+    );
+    //need to get Image out of ^ and into push
+    
+    
+  }
+
+  toggleFlash(){
+  		console.log("toggling flash!");
+  		/*this.navCtrl.push(CameraConfirmPage, {
+  			picture: pictureData
+  		});*/
+
   }
 
 

@@ -7,6 +7,7 @@
   <access origin="*"/>
   <allow-navigation href="http://ionic.local/*"/>
   <allow-navigation href="http://173.250.235.113:8100"/>
+  <allow-navigation href="http://69.91.232.236:8100"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>
@@ -38,4 +39,11 @@
   <plugin name="cordova-plugin-device" spec="1.1.4"/>
   <plugin name="cordova-plugin-splashscreen" spec="~4.0.1"/>
   <plugin name="cordova-plugin-camera-preview" spec="https://github.com/cordova-plugin-camera-preview/cordova-plugin-camera-preview.git"/>
+  <plugin name="cordova-plugin-camera" source="npm">
+    <variable name="CAMERA_USAGE_DESCRIPTION" value="Allow the app to use your camera"/>
+    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Allow the app to access your photos"/>
+  </plugin>
+  <plugin name="cordova-plugin-media-capture" source="npm">
+    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Allow the app to access your photos"/>
+  </plugin>
 </widget>

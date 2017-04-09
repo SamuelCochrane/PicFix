@@ -12,6 +12,8 @@ import { CameraConfirmPage } from '../pages/camera-confirm/camera-confirm';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { GlobalVars } from '../providers/global-vars';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -38,6 +40,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    GlobalVars,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

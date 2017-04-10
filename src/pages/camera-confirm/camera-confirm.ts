@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { GlobalVars } from '../../providers/global-vars'
+import { FormPage } from '../form/form';
+
 /*
   Generated class for the CameraConfirm page.
 
@@ -25,12 +27,9 @@ export class CameraConfirmPage {
     var previewImage = document.getElementById('confirmPicture') as HTMLImageElement;
 
 
-	var pic = localStorage.getItem('imgData');
-
-     previewImage.src = pic;
-
 	  var report = this.gVars.getCurrentReport();
     previewImage.src = report.images;
+
 
 
 
@@ -40,7 +39,7 @@ export class CameraConfirmPage {
 
 
   confirmImage() {
-  	//this.navCtrl.push([form page]);
+  	this.navCtrl.push(FormPage);
   }
 
   retryImage() {

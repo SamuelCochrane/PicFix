@@ -21,7 +21,7 @@ export class GlobalVars {
   	var report = {
   		reporterInfo: {
   			firstName : "Slem",
-  			lastName : ""
+  			lastName : "cerkrun"
   		},
   		images: {
   		},

@@ -35,6 +35,9 @@ export class CameraPage {
     });
 
 
+//temp location, move pls
+    this.gVars.createCurrentReport()
+
   }
 
  /*Called every time view is closed*/
@@ -61,6 +64,8 @@ export class CameraPage {
      	var pic = 'data:image/jpeg;base64,' + imgData;
 
      	var report = _this.gVars.getCurrentReport();
+      //console.log(report)
+
 
      	report.images = pic;
 

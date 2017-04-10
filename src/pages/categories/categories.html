@@ -7,10 +7,14 @@
 <ion-content padding>
   <h2>Categories</h2>
   <ul>
-    <li>Potholes</li>
-    <li>Street light</li>
-    <li>Litter</li>
-    <li>Vehicles</li>
-    <li>Graffitti</li>
+    <li><button ion-button id="potholoesButton" (click) = goToCamera() >
+    Potholes
+    </button></li>
+    <li><button ion-button id="grafittiButton" (click) = goToCamera() >
+    Grafitti
+    </button></li>
+    <li><button ion-button id="parkedCarsButton" (click) = goToCamera() >
+    Improperly Parked Cars
+    </button></li>
   </ul>
 </ion-content>

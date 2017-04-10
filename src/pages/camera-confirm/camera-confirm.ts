@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-
+import { GlobalVars } from '../../providers/global-vars'
 /*
   Generated class for the CameraConfirm page.
 
@@ -16,7 +16,7 @@ export class CameraConfirmPage {
   public picture:any;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars) {
   }
 
   ionViewDidEnter() {
@@ -29,7 +29,14 @@ export class CameraConfirmPage {
 
      previewImage.src = pic;
 
+	  var report = this.gVars.getCurrentReport();
+    previewImage.src = report.images;
+
+
+
   }
+
+
 
 
   confirmImage() {

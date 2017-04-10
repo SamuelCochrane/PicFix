@@ -2,6 +2,11 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { CameraConfirmPage } from '../camera-confirm/camera-confirm';
+
+
+
+import { GlobalVars } from '../../providers/global-vars'
+
 declare var CameraPreview: any;
 
 
@@ -10,22 +15,22 @@ declare var CameraPreview: any;
   templateUrl: 'camera.html'
 })
 export class CameraPage {
-	
-  
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars) {}
 
   /*Called first time page is opened*/
   ionViewDidLoad() {
     console.log('ionViewDidLoad CameraPage');
 
     CameraPreview.startCamera({
-    	x: 90, 
-    	y: 225, 
-    	width: window.screen.width - 90, 
-    	height: window.screen.height - 300, 
-    	camera: "front", 
-    	toBack: false, 
-    	tapPhoto: false, 
+    	x: 90,
+    	y: 225,
+    	width: window.screen.width - 90,
+    	height: window.screen.height - 300,
+    	camera: "front",
+    	toBack: false,
+    	tapPhoto: false,
     	previewDrag: false
     });
 
@@ -54,19 +59,27 @@ export class CameraPage {
 
     	//save pic to local storage
      	var pic = 'data:image/jpeg;base64,' + imgData;
-     	localStorage.setItem('imgData', pic);
+
+     	var report = _this.gVars.getCurrentReport();
+
+     	report.images = pic;
+
+     	_this.gVars.updateCurrentReport(report);
+
+
+		//console.log(report.images);
 
      	//launch the camera confirm page
      	_this.navCtrl.push(CameraConfirmPage, {});
 
-    } 
-		
+    }
+
 
 
     );
     //need to get Image out of ^ and into push
-    
-    
+
+
   }
 
   toggleFlash(){
@@ -74,6 +87,12 @@ export class CameraPage {
   		/*this.navCtrl.push(CameraConfirmPage, {
   			picture: pictureData
   		});*/
+
+
+  }
+
+  createReportFile() {
+
 
   }
 

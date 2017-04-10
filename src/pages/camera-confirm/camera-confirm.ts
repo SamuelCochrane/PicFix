@@ -14,7 +14,7 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class CameraConfirmPage {
   public picture:any;
-  
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -23,12 +23,12 @@ export class CameraConfirmPage {
     console.log('ionViewDidLoad CameraConfirmPage');
 
     var previewImage = document.getElementById('confirmPicture') as HTMLImageElement;
-	
+
 
 	var pic = localStorage.getItem('imgData');
-     
+
      previewImage.src = pic;
-  
+
   }
 
 

@@ -5,6 +5,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { FormPage } from '../pages/form/form';
 
 import { CameraPage } from '../pages/camera/camera';
 import { CameraConfirmPage } from '../pages/camera-confirm/camera-confirm';
@@ -22,7 +23,8 @@ import { GlobalVars } from '../providers/global-vars';
     HomePage,
     CameraPage,
     CameraConfirmPage,
-    TabsPage
+    TabsPage,
+    FormPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -35,7 +37,8 @@ import { GlobalVars } from '../providers/global-vars';
     HomePage,
     CameraPage,
     CameraConfirmPage,
-    TabsPage
+    TabsPage,
+    FormPage
   ],
   providers: [
     StatusBar,

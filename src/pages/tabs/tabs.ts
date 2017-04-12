@@ -6,6 +6,7 @@ import { ContactPage } from '../contact/contact';
 
 import { CameraPage } from '../camera/camera';
 import { FormPage } from '../form/form';
+import { ProfilePage } from '../profile/profile';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class TabsPage {
   tab3Root: any = ContactPage;
   tab4Root: any = CameraPage;
   tab5Root: any = FormPage;
+  tab6Root: any = ProfilePage;
 
   constructor() {
 

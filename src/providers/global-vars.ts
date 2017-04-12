@@ -40,4 +40,24 @@ export class GlobalVars {
   	localStorage.setItem('currentReport', JSON.stringify(updatedReport));
   }
 
+  public createProfile() {
+    var user = {
+      firstName : "marisa",
+      lastName : "nanakul",
+      email : "mnanakul@uw.edu"
+    }
+    localStorage.setItem('profile', JSON.stringify(user));
+  }
+
+  public getCurrentProfile() {
+    return JSON.parse(localStorage.getItem('profile'));
+  }
+
+  public updateCurrentProfile(updatedProfile:JSON) {
+    localStorage.setItem('profile', JSON.stringify(updatedProfile));
+  }
+
+
+
+
 }

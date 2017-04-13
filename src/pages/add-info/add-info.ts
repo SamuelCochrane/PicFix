@@ -22,7 +22,8 @@ export class AddInfoPage {
 
 
 
-  shareReport() {
+shareReport() {
+	this.navCtrl.push(HomePage, {});
 
-  }
+}
 }

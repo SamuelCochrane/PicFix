@@ -24,10 +24,10 @@ export class CameraPage {
     console.log('ionViewDidLoad CameraPage');
 
     CameraPreview.startCamera({
-    	x: 90,
-    	y: 225,
-    	width: window.screen.width - 90,
-    	height: window.screen.height - 300,
+    	x: 0,
+    	y: 0,
+    	width: window.screen.width,
+    	height: window.screen.height - 150,
     	camera: "front",
     	toBack: false,
     	tapPhoto: false,

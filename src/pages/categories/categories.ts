@@ -17,8 +17,14 @@ import { CameraPage } from '../camera/camera';
   		this.pushPage = CategoriesPage;
   }
 
+  goToCamera() {
+	this.navCtrl.push(CameraPage, {});
+}
+
+ /*
   goToCamera(reportType:string) {
 	this.navCtrl.push(CameraPage, {});
 }
+*/
 
 }

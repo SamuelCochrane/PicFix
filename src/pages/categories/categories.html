@@ -7,6 +7,19 @@
 <ion-content padding>
   <h2>Categories</h2>
   <ul>
+    <li><button ion-button id="potholesButton" (click) = goToCamera() >
+    Potholes
+    </button></li>
+    <li><button ion-button id="graffitiButton" (click) = goToCamera() >
+    Grafitti
+    </button></li>
+    <li><button ion-button id="parkedCarsButton" (click) = goToCamera() >
+    Improperly Parked Cars
+    </button></li>
+  </ul>
+
+
+<!--     <ul>
     <li><button ion-button id="potholesButton" (click) = goToCamera("pothole") >
     Potholes
     </button></li>
@@ -16,5 +29,5 @@
     <li><button ion-button id="parkedCarsButton" (click) = goToCamera("cars") >
     Improperly Parked Cars
     </button></li>
-  </ul>
+  </ul> -->
 </ion-content>

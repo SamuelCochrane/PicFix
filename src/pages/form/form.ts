@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { PotholePage } from '../pothole/pothole;
 import { GlobalVars } from '../../providers/global-vars'
 
 
@@ -28,4 +29,8 @@ export class FormPage {
   }
 
 
+}
+
+  goToPothole() {
+    this.navCtrl.push(PotholePage, {});
 }

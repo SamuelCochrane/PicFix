@@ -1,5 +1,14 @@
 page-home {
   #profileButton {
+    float: right;
+  }
+
+  #categoriesButton {
+    //padding: $content-padding;
+    position: fixed;
+    bottom:0;
+    left: 0;
+    right: 0;
 
   }
 

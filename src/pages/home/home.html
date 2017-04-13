@@ -14,8 +14,12 @@
     update any existing page or create new pages.
   </p> -->
 
-  <button ion-button id="profileButton" (click) = goToProfilePage() color="secondary">Profile</button>
-  <button ion-button large id="categoriesButton" (click) = goToCategoriesPage() >
+  <button ion-button icon-left id="profileButton" (click) = goToProfilePage() color="secondary">
+    <ion-icon name="person"></ion-icon>
+    Profile
+  </button>
+  <button ion-button icon-left large id="categoriesButton" (click) = goToCategoriesPage() >
+    <ion-icon name="document"></ion-icon>
     Create a report
   </button>
 

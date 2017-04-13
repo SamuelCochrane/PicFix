@@ -5,7 +5,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { FormPage } from '../pages/form/form';
-import { PotholePage} from '../pages/form-two/form-two';
+import { PotholePage} from '../pages/pothole/pothole';
 import { CategoriesPage } from '../pages/categories/categories';
 import { ProfilePage } from '../pages/profile/profile';
 

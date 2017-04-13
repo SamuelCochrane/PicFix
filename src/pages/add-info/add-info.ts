@@ -20,9 +20,10 @@ export class AddInfoPage {
   		this.pushPage = AddInfoPage;
   }
 
-}
+
 
 shareReport() {
 	this.navCtrl.push(HomePage, {});
 
+}
 }

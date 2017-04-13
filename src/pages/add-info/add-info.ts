@@ -23,7 +23,10 @@ export class AddInfoPage {
 
 
 shareReport() {
-	this.navCtrl.push(HomePage, {});
+	this.navCtrl.push(HomePage, {
+    param1: 'submittedReport'
+
+  });
 
 }
 }

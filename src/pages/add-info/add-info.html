@@ -17,9 +17,13 @@
 <h1>Additional Information</h1>
 	 <form>
 		<br>Additional Information:<br>
-		  	<textarea rows="4" cols="50">
-				<input name="addInformation" placeholder= "ex. ">
-			</textarea>
+		 <input type="text" name="addInfo"><br>
+
+		   <ion-item>
+		    	<ion-label>Send Anonymously</ion-label>
+		    	<ion-checkbox [(ngModel)]="anonymous"></ion-checkbox>
+		  </ion-item>
+
 	</form>
-	<button>Submit</button>
+	<button ion-button lid="submitButton" >Submit</button>
 </ion-content>

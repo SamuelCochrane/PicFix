@@ -5,21 +5,20 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to PicFix!</h2>
+  <!-- <h2>Welcome to PicFix!</h2>
   <p>
     This is where we will have the 'Create Report button', that sends us to the camera direct or has a list of report types if we can manage to make more than 1.
   </p>
   <p>
     Take a look at the <code>src/pages/</code> directory to add or change tabs,
     update any existing page or create new pages.
-  </p>
+  </p> -->
 
-
+  <button ion-button id="profileButton" (click) = goToProfilePage() color="secondary">Profile</button>
   <button ion-button large id="categoriesButton" (click) = goToCategoriesPage() >
     Create a report
   </button>
 
-  <button ion-button id="profileButton" (click) = goToProfilePage() color="secondary">Profile</button>
 
 
 </ion-content>

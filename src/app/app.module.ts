@@ -4,7 +4,6 @@ import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
 import { FormPage } from '../pages/form/form';
 import { CategoriesPage } from '../pages/categories/categories';
 import { ProfilePage } from '../pages/profile/profile';
@@ -27,7 +26,6 @@ import { GlobalVars } from '../providers/global-vars';
     HomePage,
     CameraPage,
     CameraConfirmPage,
-    TabsPage,
     FormPage,
     CategoriesPage,
     ProfilePage,
@@ -44,7 +42,6 @@ import { GlobalVars } from '../providers/global-vars';
     HomePage,
     CameraPage,
     CameraConfirmPage,
-    TabsPage,
     FormPage,
     CategoriesPage,
     ProfilePage,

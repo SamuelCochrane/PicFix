@@ -17,7 +17,7 @@ import { CameraPage } from '../camera/camera';
   		this.pushPage = CategoriesPage;
   }
 
-  goToCamera(reportType:string) {
+  goToCamera() {
 	this.navCtrl.push(CameraPage, {});
 }
 

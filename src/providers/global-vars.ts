@@ -41,12 +41,14 @@ export class GlobalVars {
   }
 
   public createProfile() {
-    var user = {
-      firstName : "marisa",
-      lastName : "nanakul",
-      email : "mnanakul@uw.edu"
+    var profile = {
+      userInfo: {
+        firstName : "",
+        lastName : "",
+        email : ""
+      }
     }
-    localStorage.setItem('profile', JSON.stringify(user));
+    localStorage.setItem('profile', JSON.stringify(profile));
   }
 
   public getCurrentProfile() {
@@ -57,6 +59,11 @@ export class GlobalVars {
     localStorage.setItem('profile', JSON.stringify(updatedProfile));
   }
 
+  public profileExists() {
+    if (localStorage.getItem('profile') == null) {
+      return false
+    }
+  }
 
 
 

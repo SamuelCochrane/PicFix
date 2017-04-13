@@ -6,6 +6,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { FormPage } from '../pages/form/form';
 import { PotholePage} from '../pages/form-two/form-two';
+import { AddInfoPage} from '../pages/add-info/add-info';
 import { CategoriesPage } from '../pages/categories/categories';
 import { ProfilePage } from '../pages/profile/profile';
 
@@ -29,6 +30,7 @@ import { GlobalVars } from '../providers/global-vars';
     CameraConfirmPage,
     FormPage,
     PotholePage,
+    AddInfoPage,
     CategoriesPage,
     ProfilePage,
     DescriptionsPage
@@ -46,6 +48,7 @@ import { GlobalVars } from '../providers/global-vars';
     CameraConfirmPage,
     FormPage,
     PotholePage,
+    AddInfoPage,
     CategoriesPage,
     ProfilePage,
     DescriptionsPage

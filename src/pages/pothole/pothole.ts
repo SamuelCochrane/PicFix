@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { AddInfoPage } from '../add-info/add-info;
 import { GlobalVars } from '../../providers/global-vars'
 
 /*
@@ -20,4 +21,9 @@ import { GlobalVars } from '../../providers/global-vars'
   			this.pushPage = PotholePage;
 
 	}
+}
+
+goToAddInfo() {
+	this.navCtrl.push(AddInfoPage, {});
+
 }

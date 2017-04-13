@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-
 import { NavController } from 'ionic-angular';
-
 import { CameraPage } from '../camera/camera';
-
 import { DescriptionsPage } from '../descriptions/descriptions';
+import { GlobalVars } from '../../providers/global-vars'
 
 
 @Component({
@@ -20,9 +18,15 @@ import { DescriptionsPage } from '../descriptions/descriptions';
   }
 
   goToCamera() {
+  //goToCamera(reportType:String) {
 
-	this.navCtrl.push(CameraPage, {});
-}
+    //create the report
+    // this.gVars.createCurrentReport();
+    // var report = this.gVars.getCurrentReport();
+    // report.reportType = reportType;
+
+  	this.navCtrl.push(CameraPage, {});
+  }
 
 	goToDescriptions() {
 		this.navCtrl.push(DescriptionsPage, {});

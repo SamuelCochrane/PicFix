@@ -4,6 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { GlobalVars } from '../../providers/global-vars'
 import { FormPage } from '../form/form';
 
+
 /*
   Generated class for the CameraConfirm page.
 
@@ -34,9 +35,6 @@ export class CameraConfirmPage {
 
 
   }
-
-
-
 
   confirmImage() {
   	this.navCtrl.push(FormPage);

@@ -12,6 +12,8 @@ import { ProfilePage } from '../pages/profile/profile';
 import { CameraPage } from '../pages/camera/camera';
 import { CameraConfirmPage } from '../pages/camera-confirm/camera-confirm';
 
+import { DescriptionsPage } from '../pages/descriptions/descriptions';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -28,7 +30,8 @@ import { GlobalVars } from '../providers/global-vars';
     TabsPage,
     FormPage,
     CategoriesPage,
-    ProfilePage
+    ProfilePage,
+    DescriptionsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -44,7 +47,8 @@ import { GlobalVars } from '../providers/global-vars';
     TabsPage,
     FormPage,
     CategoriesPage,
-    ProfilePage
+    ProfilePage,
+    DescriptionsPage
   ],
   providers: [
     StatusBar,

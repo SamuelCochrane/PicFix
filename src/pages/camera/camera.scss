@@ -1,8 +1,6 @@
 page-camera {
 
-#ion-content {
-	background-color: #555555 !important;
-}
+
 
 .button {
 	background-color: #555555;
@@ -31,6 +29,18 @@ page-camera {
 	outline-color: white;
 }
 
+img {
+	outline-style: solid;
+	outline: 5px;
+	outline-color: blue;
+	z-index: -1;
+	outline:0.3;
+}
+
 
 }
 
+html, body, .ion-app, .ion-content, #ion-content, .ion-app.md, ion-app.md {
+  background-color: transparent!important;
+
+}

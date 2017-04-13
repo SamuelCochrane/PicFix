@@ -4,6 +4,8 @@ import { NavController } from 'ionic-angular';
 
 import { CameraPage } from '../camera/camera';
 
+import { DescriptionsPage } from '../descriptions/descriptions';
+
 
 @Component({
   selector: 'page-categories',
@@ -20,6 +22,10 @@ import { CameraPage } from '../camera/camera';
   goToCamera() {
 	this.navCtrl.push(CameraPage, {});
 }
+
+	goToDescriptions() {
+		this.navCtrl.push(DescriptionsPage, {});
+	}
 
  /*
   goToCamera(reportType:string) {

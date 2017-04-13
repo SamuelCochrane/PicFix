@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { HomePage } from '../home/home';
 import { GlobalVars } from '../../providers/global-vars'
 
 
@@ -18,5 +19,9 @@ export class AddInfoPage {
   	constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars) {
   		this.pushPage = AddInfoPage;
   }
+
+}
+
+shareReport() {
 
 }

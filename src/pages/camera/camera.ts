@@ -28,7 +28,7 @@ export class CameraPage {
     	y: 0,
     	width: window.screen.width,
     	height: window.screen.height - 150,
-    	camera: "front",
+    	camera: "back",
     	toBack: false,
     	tapPhoto: false,
     	previewDrag: false

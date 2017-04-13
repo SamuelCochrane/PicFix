@@ -63,6 +63,9 @@ export class GlobalVars {
     if (localStorage.getItem('profile') == null) {
       return false
     }
+    else {
+      return true;
+    }
   }
 
 

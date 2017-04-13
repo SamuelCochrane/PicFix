@@ -20,8 +20,7 @@ import { DescriptionsPage } from '../descriptions/descriptions';
   }
 
   goToCamera() {
-<<<<<<< HEAD
-=======
+
 	this.navCtrl.push(CameraPage, {});
 }
 
@@ -29,11 +28,7 @@ import { DescriptionsPage } from '../descriptions/descriptions';
 		this.navCtrl.push(DescriptionsPage, {});
 	}
 
- /*
-  goToCamera(reportType:string) {
->>>>>>> 6cd34db760d3d3d25c05ce013814861b0e9dbcd2
-	this.navCtrl.push(CameraPage, {});
-}
-*/
 
+  // goToCamera(reportType:string) {
+  // }
 }

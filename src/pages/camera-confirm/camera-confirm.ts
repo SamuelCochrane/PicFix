@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { GlobalVars } from '../../providers/global-vars'
+import { GlobalVars } from '../../providers/global-vars';
 import { FormPage } from '../form/form';
+
 
 
 /*
@@ -16,7 +17,7 @@ import { FormPage } from '../form/form';
   templateUrl: 'camera-confirm.html'
 })
 export class CameraConfirmPage {
-  public picture:any;
+  //public picture:any;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars) {
@@ -32,6 +33,11 @@ export class CameraConfirmPage {
     previewImage.src = report.images;
 
 
+    console.log(" end of camera confirm loading");
+    console.log("huge string:" + report.images);
+
+
+
 
 
   }
@@ -43,5 +49,7 @@ export class CameraConfirmPage {
   retryImage() {
   	this.navCtrl.pop();
   }
+
+
 
 }

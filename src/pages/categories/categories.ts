@@ -13,17 +13,17 @@ import { GlobalVars } from '../../providers/global-vars'
 
   export class CategoriesPage {
 	pushPage;
-  	constructor(public navCtrl: NavController) {
+  	constructor(public navCtrl: NavController, public gVars:GlobalVars) {
   		this.pushPage = CategoriesPage;
   }
 
-  goToCamera() {
-  //goToCamera(reportType:String) {
+  //goToCamera() {
+  goToCamera(reportType:String) {
 
     //create the report
-    // this.gVars.createCurrentReport();
-    // var report = this.gVars.getCurrentReport();
-    // report.reportType = reportType;
+    this.gVars.createCurrentReport();
+    var report = this.gVars.getCurrentReport();
+    report.reportType = reportType;
 
   	this.navCtrl.push(CameraPage, {});
   }

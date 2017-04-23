@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { CameraConfirmPage } from '../camera-confirm/camera-confirm';
+import { ToastController } from 'ionic-angular';
 
 
 
@@ -17,7 +18,7 @@ declare var CameraPreview: any;
 export class CameraPage {
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars, public toastCtrl: ToastController) {}
 
   /*Called first time page is opened*/
   ionViewDidLoad() {
@@ -29,10 +30,11 @@ export class CameraPage {
     	width: window.screen.width,
     	height: window.screen.height - 150,
     	camera: "back",
-    	toBack: true,
+    	toBack: false,
     	tapPhoto: false,
     	previewDrag: false
     });
+
 
   }
 
@@ -45,6 +47,9 @@ export class CameraPage {
  /*Called every time view is opened*/
   ionViewWillEnter() {
  	CameraPreview.show();
+  this.presentToast();
+
+
   }
 
 
@@ -73,6 +78,7 @@ export class CameraPage {
      	//launch the camera confirm page
      	_this.navCtrl.push(CameraConfirmPage, {});
 
+
     }
 
 
@@ -88,13 +94,24 @@ export class CameraPage {
   		/*this.navCtrl.push(CameraConfirmPage, {
   			picture: pictureData
   		});*/
-
+      this.presentToast();
 
   }
 
   createReportFile() {
 
 
+  }
+
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'User was added successfully',
+      duration: 3000,
+      position: 'bottom'
+
+    });
+    toast.present();
+    console.log('toast got called')
   }
 
 

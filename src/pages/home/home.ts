@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { CategoriesPage } from '../categories/categories';
 import { ProfilePage } from '../profile/profile';
+import { ToastController } from 'ionic-angular';
+
 
 @Component({
   selector: 'page-home',
@@ -12,7 +14,7 @@ export class HomePage {
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
     this.parameter1 = this.navParams.get('param1');
   }
 
@@ -34,5 +36,19 @@ ionViewDidLoad() {
 
 
 }
+
+// ionViewWillEnter() {
+//   this.presentToast()
+// }
+//
+// presentToast() {
+//   let toast = this.toastCtrl.create({
+//     message: 'User was added successfully',
+//     duration: 3000,
+//
+//   });
+//   toast.present();
+// }
+
 
 }

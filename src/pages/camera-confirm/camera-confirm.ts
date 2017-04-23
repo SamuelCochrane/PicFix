@@ -34,7 +34,7 @@ export class CameraConfirmPage {
 
 
     console.log(" end of camera confirm loading");
-    console.log("huge string:" + report.images);
+    //console.log("huge string:" + report.images);
 
 
 

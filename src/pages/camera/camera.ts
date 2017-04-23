@@ -30,7 +30,7 @@ export class CameraPage {
     	width: window.screen.width,
     	height: window.screen.height - 150,
     	camera: "back",
-    	toBack: false,
+    	toBack: true,
     	tapPhoto: false,
     	previewDrag: false
     });

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { PotholePage } from '../pothole/pothole';
 import { GlobalVars } from '../../providers/global-vars'
-
+import { OlprData } from '../../providers/olpr-data'
 
 /*
   Generated class for the Form page.
@@ -16,7 +16,7 @@ import { GlobalVars } from '../../providers/global-vars'
 })
 export class FormPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars, public oData :  OlprData) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FormPage');
@@ -26,6 +26,9 @@ export class FormPage {
 
 	  var report = this.gVars.getCurrentReport();
     previewImage.src = report.images;
+
+    this.oData.getData(report.images);
+
   }
 
 

@@ -36,6 +36,7 @@ export class CameraPage {
     });
 
 
+
   }
 
  /*Called every time view is closed*/
@@ -46,8 +47,8 @@ export class CameraPage {
 
  /*Called every time view is opened*/
   ionViewWillEnter() {
- 	CameraPreview.show();
-  this.presentToast();
+ 	  CameraPreview.show();
+    this.presentToast();
 
 
   }
@@ -105,9 +106,9 @@ export class CameraPage {
 
   presentToast() {
     let toast = this.toastCtrl.create({
-      message: 'User was added successfully',
+      message: 'Please line the overlay up with the object',
       duration: 3000,
-      position: 'bottom'
+      position: 'top'
 
     });
     toast.present();

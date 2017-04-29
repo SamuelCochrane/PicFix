@@ -21,6 +21,18 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { GlobalVars } from '../providers/global-vars';
 
+// import angular
+import { AngularFireModule } from 'angularfire2';
+
+export const firebaseConfig = {
+    apiKey: "AIzaSyAth5ukrQdumsPTAv4BtBlxvufx-Jje3zQ",
+    authDomain: "picfix-b2a74.firebaseapp.com",
+    databaseURL: "https://picfix-b2a74.firebaseio.com",
+    projectId: "picfix-b2a74",
+    storageBucket: "picfix-b2a74.appspot.com",
+    messagingSenderId: "242758206804"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -37,7 +49,8 @@ import { GlobalVars } from '../providers/global-vars';
     DescriptionsPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [

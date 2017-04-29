@@ -5,9 +5,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 
+// import firebase
+//import {FirebaseData} from './providers/firebase-data';
+
+
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  //providers: [FirebaseData]
 })
 export class MyApp {
   rootPage:any = HomePage;

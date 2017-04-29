@@ -29,6 +29,7 @@ export class FormPage {
 
     this.oData.getData(report.images);
 
+
   }
 
 

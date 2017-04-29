@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
+import request from 'request';
 
 declare var require: any;
 /*
@@ -23,36 +24,67 @@ export class OlprData {
 
 
 
-  getData(img:String) {
+getData(img:String) {
 
-	var OpenalprApi = require('openalpr_api');
+	var dataString = img.substring(22); //cut off the leading "data type" info, leaving just the stringified pic
 
-	var api = new OpenalprApi.DefaultApi();
-
-
-	var imageBytes = img; // {String} The image file that you wish to analyze encoded in base64 
-
-	var secretKey = "sk_df7b1684aa2e299660d8c087"; // {String} The secret key used to authenticate your account.  You can view your  secret key by visiting  https://cloud.openalpr.com/ 
-
-	var country = "us"; // {String} Defines the training data used by OpenALPR.  \"us\" analyzes  North-American style plates.  \"eu\" analyzes European-style plates.  This field is required if using the \"plate\" task  You may use multiple datasets by using commas between the country  codes.  For example, 'au,auwide' would analyze using both the  Australian plate styles.  A full list of supported country codes  can be found here https://github.com/openalpr/openalpr/tree/master/runtime_data/config 
-
-	var opts = { 
-	  'recognizeVehicle': 0, // {Integer} If set to 1, the vehicle will also be recognized in the image This requires an additional credit per request 
-	  'state': "", // {String} Corresponds to a US state or EU country code used by OpenALPR pattern  recognition.  For example, using \"md\" matches US plates against the  Maryland plate patterns.  Using \"fr\" matches European plates against  the French plate patterns. 
-	  'returnImage': 0, // {Integer} If set to 1, the image you uploaded will be encoded in base64 and  sent back along with the response 
-	  'topn': 10, // {Integer} The number of results you would like to be returned for plate  candidates and vehicle classifications 
-	  'prewarp': "" // {String} Prewarp configuration is used to calibrate the analyses for the  angle of a particular camera.  More information is available here http://doc.openalpr.com/accuracy_improvements.html#calibration 
+	var options = {
+	    url: 'https://api.openalpr.com/v2/recognize_bytes?secret_key=sk_df7b1684aa2e299660d8c087&recognize_vehicle=0&country=us&return_image=0&topn=10',
+	    method: 'POST',
+	    body: dataString
 	};
 
-	var callback = function(error, data, response) {
-	  if (error) {
-	    console.error(error);
-	  } else {
-	    console.log('API called successfully. Returned data: ' + data);
-	  }
-	};
+	function callback(error, response, body) {
+	    if (!error && response.statusCode == 200) {
+	        var bodyObj = JSON.parse(body);
 
-	api.recognizeBytes(imageBytes, secretKey, country, opts, callback);
+	       // console.log(bodyObj.results[0]);
+	        //console.log('//////////////');
+	       // console.log(bodyObj.results[0].plate);
+	        return bodyObj;
+
+	    } else {
+	    	console.log('ERROR ' + error);
+	    	return null;
+	    }
+	}
+
+	request(options, callback);
+	
 	
   }
+
 }
+
+
+/*
+{
+	"data_type": "alpr_results", 
+	"epoch_time": 1493500437687, 
+	"processing_time": 
+	{
+		"plates": 88.278915, 
+		"total": 101.76900000078604
+	}, 
+	"img_height": 1600, 
+	"img_width": 1200, 
+	"results": [
+	{
+		"plate":"954ZDX", 
+		"confidence": 81.582253, 
+		"region_confidence": 49, 
+		"vehicle_region": {"y": 118, "x": 0, "height":
+            1200, "width": 1200}, 
+            "region": "ky", "plate_index": 0, "processing_time_ms": 16.217129, "candidates":
+            [{"matches_template": 0, "plate": "9542DX", "confidence": 86.038353}, {"matches_template": 1, "plate":
+            "954ZDX", "confidence": 81.582253}, {"matches_template": 0, "plate": "954DX", "confidence": 78.650307},
+            {"matches_template": 0, "plate": "9543DX", "confidence": 77.363083}, {"matches_template": 1, "plate":
+            "954XDX", "confidence": 77.155037}, {"matches_template": 1, "plate": "954CDX", "confidence": 77.030731},
+            {"matches_template": 0, "plate": "95420X", "confidence": 74.436172}, {"matches_template": 0, "plate":
+            "9542X", "confidence": 72.510696}, {"matches_template": 0, "plate": "952DX", "confidence": 71.410133},
+            {"matches_template": 0, "plate": "954Z0X", "confidence": 69.980072}], "coordinates": [{"y": 873, "x": 499}, 
+            {"y": 875, "x": 753}, {"y": 1022, "x": 751}, {"y": 1020, "x": 502}], "matches_template": 1,
+            "requested_topn": 10}], "credits_monthly_used": 11, "version": 2, "credits_monthly_total": 1500, "error":
+            false, "regions_of_interest": [{"y": 0, "x": 0, "height": 1600, "width": 1200}], "credit_cost": 1}
+
+            */

@@ -20,6 +20,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { GlobalVars } from '../providers/global-vars';
+import { OlprData } from '../providers/olpr-data';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { GlobalVars } from '../providers/global-vars';
     StatusBar,
     SplashScreen,
     GlobalVars,
+    OlprData,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -40,7 +40,17 @@ page-camera {
 
 
 
+
+
 }
+
+.toast-container {
+	background: red;
+	z-index: 100;
+}
+
+
+
 
 html, body, .ion-app, .ion-content, #ion-content, .ion-app.md, ion-app.md {
   background-color: transparent!important;

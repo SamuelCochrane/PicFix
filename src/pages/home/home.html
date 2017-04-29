@@ -1,6 +1,15 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Home</ion-title>
+
+    <!-- firebase example - pls ignore -->
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addSong()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+
+
   </ion-navbar>
 </ion-header>
 
@@ -22,6 +31,13 @@
     <ion-icon name="document"></ion-icon>
     Create a report
   </button>
+
+  <!-- firebase example - pls ignore -->
+  <ion-list>
+    <ion-item *ngFor="let song of songs | async" (click)="showOptions(song.$key, song.title)">
+      {{song.title}}
+    </ion-item>
+  </ion-list>
 
 
 

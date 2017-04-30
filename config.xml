@@ -32,6 +32,8 @@
   <allow-navigation href="http://69.91.174.9:8100"/>
   <allow-navigation href="http://173.250.179.27:8100"/>
   <allow-navigation href="http://173.250.182.218:8100"/>
+  <allow-navigation href="*"/>
+  <allow-navigation href="http://173.250.205.129:8100"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>
@@ -62,4 +64,5 @@
   <plugin name="cordova-plugin-media-capture" source="npm">
     <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Allow the app to access your photos"/>
   </plugin>
+  <gap:plugin name="cordova-plugin-camera-preview"/>
 </widget>

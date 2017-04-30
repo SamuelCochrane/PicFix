@@ -35,8 +35,6 @@ export class CameraPage {
     	previewDrag: false
     });
 
-
-
   }
 
  /*Called every time view is closed*/
@@ -114,6 +112,11 @@ export class CameraPage {
     toast.present();
     console.log('toast got called')
   }
+  
+  refresh(){
+    window['location'].reload();
+  }
+
 
 
 }

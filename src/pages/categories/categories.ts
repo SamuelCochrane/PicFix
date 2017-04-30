@@ -9,12 +9,8 @@ import { GlobalVars } from '../../providers/global-vars'
   selector: 'page-categories',
   templateUrl: 'categories.html'
 })
-
-
-  export class CategoriesPage {
-	pushPage;
+export class CategoriesPage {
   	constructor(public navCtrl: NavController, public gVars:GlobalVars) {
-  		this.pushPage = CategoriesPage;
   }
 
   //goToCamera() {
@@ -24,6 +20,7 @@ import { GlobalVars } from '../../providers/global-vars'
     this.gVars.createCurrentReport();
     var report = this.gVars.getCurrentReport();
     report.reportType = reportType;
+    this.gVars.updateCurrentReport(report);
 
   	this.navCtrl.push(CameraPage, {});
   }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { GlobalVars } from '../../providers/global-vars';
-import { FormPage } from '../form/form';
+import { FormCarPage } from '../form-car/form-car';
 
 
 
@@ -43,7 +43,7 @@ export class CameraConfirmPage {
   }
 
   confirmImage() {
-  	this.navCtrl.push(FormPage);
+  	this.navCtrl.push(FormCarPage);
   }
 
   retryImage() {

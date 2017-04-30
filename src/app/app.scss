@@ -17,7 +17,6 @@
 
 
 
-html, body, .ion-app, .ion-content, #ion-content, .ion-app.md, ion-app.md, ion-view, ion-pane {
-  background-color: transparent;
-
+html, body, ion-app, ion-content, ion-page, .nav-decor {
+  background-color: transparent !important;
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
+import { FormCarPage } from '../form-car/form-car';
 import { CameraConfirmPage } from '../camera-confirm/camera-confirm';
 import { ToastController } from 'ionic-angular';
 
@@ -72,18 +72,11 @@ export class CameraPage {
      	_this.gVars.updateCurrentReport(report);
 
 
-		//console.log(report.images);
+       	//launch the camera confirm page
+       	_this.navCtrl.push(FormCarPage, {});
+      }
 
-     	//launch the camera confirm page
-     	_this.navCtrl.push(CameraConfirmPage, {});
-
-
-    }
-
-
-
-    );
-    //need to get Image out of ^ and into push
+    });
 
 
   }

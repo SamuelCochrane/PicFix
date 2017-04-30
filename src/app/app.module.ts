@@ -4,7 +4,7 @@ import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-import { FormPage } from '../pages/form/form';
+import { FormCarPage } from '../pages/form-car/form-car';
 
 import { PotholePage} from '../pages/pothole/pothole';
 import { AddInfoPage} from '../pages/add-info/add-info';
@@ -42,7 +42,7 @@ export const firebaseConfig = {
     HomePage,
     CameraPage,
     CameraConfirmPage,
-    FormPage,
+    FormCarPage,
     PotholePage,
     AddInfoPage,
     CategoriesPage,
@@ -61,7 +61,7 @@ export const firebaseConfig = {
     HomePage,
     CameraPage,
     CameraConfirmPage,
-    FormPage,
+    FormCarPage,
     PotholePage,
     AddInfoPage,
     CategoriesPage,

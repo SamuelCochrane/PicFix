@@ -11,10 +11,10 @@ import { OlprData } from '../../providers/olpr-data'
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-form',
-  templateUrl: 'form.html'
+  selector: 'page-form-car',
+  templateUrl: 'form-car.html'
 })
-export class FormPage {
+export class FormCarPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars, public oData :  OlprData) {}
 
@@ -29,9 +29,9 @@ export class FormPage {
 
     this.oData.getData(report.images).then(function(response) {
       alert("License Plate info found, auto-filling form");
-      var dataObj = JSON.parse(response[0]);
-      this.autofillForm(dataObj);
-      
+      //var dataObj = JSON.parse(response[0]);
+      //this.autofillForm(dataObj);
+      console.log(response[0]);
       });
 
 

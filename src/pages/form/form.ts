@@ -27,7 +27,12 @@ export class FormPage {
 	  var report = this.gVars.getCurrentReport();
     previewImage.src = report.images;
 
-    this.oData.getData(report.images);
+    this.oData.getData(report.images).then(function(response) {
+      alert("License Plate info found, auto-filling form");
+      var dataObj = JSON.parse(response[0]);
+      this.autofillForm(dataObj);
+      
+      });
 
 
   }
@@ -35,5 +40,11 @@ export class FormPage {
 
   goToPothole() {
     this.navCtrl.push(PotholePage, {});
+  }
+
+
+  //takes in an OLPR data form, sets form fields to that info.
+  autofillForm(data) {
+    //TODO: set form fields.
   }
 }

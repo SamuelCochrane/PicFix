@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import request from 'request';
+import requestPromise from 'request-promise';
 
 declare var require: any;
 /*
@@ -24,38 +25,39 @@ export class OlprData {
 
 
 
-getData(img:String) {
+	getData(img:String) {	
+		return new Promise(function(resolve, reject) {
+			var dataString = img.substring(22); //cut off the leading "data type" info, leaving just the stringified pic
 
-	var dataString = img.substring(22); //cut off the leading "data type" info, leaving just the stringified pic
+			var options = {
+			    url: 'https://api.openalpr.com/v2/recognize_bytes?secret_key=sk_df7b1684aa2e299660d8c087&recognize_vehicle=0&country=us&return_image=0&topn=10',
+			    method: 'POST',
+			    body: dataString
+			};
 
-	var options = {
-	    url: 'https://api.openalpr.com/v2/recognize_bytes?secret_key=sk_df7b1684aa2e299660d8c087&recognize_vehicle=0&country=us&return_image=0&topn=10',
-	    method: 'POST',
-	    body: dataString
-	};
 
-	function callback(error, response, body) {
-	    if (!error && response.statusCode == 200) {
-	        var bodyObj = JSON.parse(body);
 
-	       // console.log(bodyObj.results[0]);
-	        //console.log('//////////////');
-	       // console.log(bodyObj.results[0].plate);
-	        return bodyObj;
+			requestPromise(options, callback);
 
-	    } else {
-	    	console.log('ERROR ' + error);
-	    	return null;
-	    }
+			function callback(error, response, body) {
+			    if (!error && response.statusCode == 200) {
+			        //var bodyObj = JSON.parse(body);
+
+			       // console.log(bodyObj.results[0]);
+			        //console.log('//////////////');
+			       // console.log(bodyObj.results[0].plate);
+			        resolve(body);
+
+			    } else {
+			    	console.log('ERROR ' + error);
+			    	reject(error);
+			    }
+			}
+		
+		
+	  });
 	}
-
-	request(options, callback);
-	
-	
-  }
-
 }
-
 
 /*
 {

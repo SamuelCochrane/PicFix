@@ -15,7 +15,6 @@ export class CategoriesPage {
 
   //goToCamera() {
   goToCamera(reportType:String) {
-     console.log("reportType: " + reportType);
 
     //create the report
     this.gVars.createCurrentReport();

@@ -71,7 +71,7 @@ export class CameraPage {
 
      	_this.gVars.updateCurrentReport(report);
 
-
+      if(true) {
        	//launch the camera confirm page
        	_this.navCtrl.push(FormCarPage, {});
       }

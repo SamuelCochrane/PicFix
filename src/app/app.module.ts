@@ -6,7 +6,6 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { FormCarPage } from '../pages/form-car/form-car';
 
-import { PotholePage} from '../pages/pothole/pothole';
 import { AddInfoPage} from '../pages/add-info/add-info';
 import { CategoriesPage } from '../pages/categories/categories';
 import { ProfilePage } from '../pages/profile/profile';
@@ -43,7 +42,6 @@ export const firebaseConfig = {
     CameraPage,
     CameraConfirmPage,
     FormCarPage,
-    PotholePage,
     AddInfoPage,
     CategoriesPage,
     ProfilePage,
@@ -62,7 +60,6 @@ export const firebaseConfig = {
     CameraPage,
     CameraConfirmPage,
     FormCarPage,
-    PotholePage,
     AddInfoPage,
     CategoriesPage,
     ProfilePage,

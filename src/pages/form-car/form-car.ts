@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { PotholePage } from '../pothole/pothole';
+//import { PotholePage } from '../pothole/pothole';
 import { GlobalVars } from '../../providers/global-vars'
 import { OlprData } from '../../providers/olpr-data'
 
@@ -39,7 +39,7 @@ export class FormCarPage {
 
 
   goToPothole() {
-    this.navCtrl.push(PotholePage, {});
+    //this.navCtrl.push(PotholePage, {});
   }
 
 

@@ -64,5 +64,4 @@
   <plugin name="cordova-plugin-media-capture" source="npm">
     <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="Allow the app to access your photos"/>
   </plugin>
-  <gap:plugin name="cordova-plugin-camera-preview"/>
 </widget>

@@ -6,13 +6,13 @@
 
 <ion-content>
   <h2>Categories</h2>
-      <button ion-button icon-left id="potholesButton" (click) = goToCamera() >
+      <button ion-button icon-left id="potholesButton" (click) = "goToCamera('pothole')" >
       <ion-icon name="car"></ion-icon>
       Potholes
       </button>
 
       <br>
-      <button ion-button icon-left id="parkedCarsButton" (click) = goToCamera() >
+      <button ion-button icon-left id="parkedCarsButton" (click) = "goToCamera('car')" >
         <ion-icon name="car"></ion-icon>
         Improperly Parked Cars
       </button>

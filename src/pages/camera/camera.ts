@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { FormCarPage } from '../form-car/form-car';
+import { AddInfoPage } from '../add-info/add-info';
 import { CameraConfirmPage } from '../camera-confirm/camera-confirm';
 import { ToastController } from 'ionic-angular';
 
@@ -71,9 +72,13 @@ export class CameraPage {
 
      	_this.gVars.updateCurrentReport(report);
 
-      if(true) {
+      if(report.reportType == "car") {
        	//launch the camera confirm page
        	_this.navCtrl.push(FormCarPage, {});
+      } else if (report.reportType == "pothole") {
+        _this.navCtrl.push(AddInfoPage, {});
+      } else {
+        alert("ERROR: No Report Type Selected!");
       }
 
     });

@@ -28,7 +28,7 @@ export class FormCarPage {
     previewImage.src = report.images;
 
     this.oData.getData(report.images).then(function(response) {
-      alert("License Plate info found, auto-filling form");
+      alert("License Plate info found [" + response[0].plate + "], auto-filling form");
       //var dataObj = JSON.parse(response[0]);
       //this.autofillForm(dataObj);
       console.log(response[0]);

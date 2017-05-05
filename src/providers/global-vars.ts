@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import { ToastController } from 'ionic-angular';
 
 /*
   Generated class for the GlobalVars provider.
@@ -12,7 +12,7 @@ export class GlobalVars {
 
   //public reportPath: any;
 
-  constructor() {
+  constructor(public toastCtrl: ToastController) {
     console.log('Hello GlobalVars Provider');
     //this.reportPath = "";
   }
@@ -69,5 +69,16 @@ export class GlobalVars {
   }
 
 
+
+public presentToast(text:string) {
+    let toast = this.toastCtrl.create({
+      message: text,
+      duration: 3000,
+      position: 'top'
+
+    });
+    toast.present();
+    console.log('toaster got called');
+  }
 
 }

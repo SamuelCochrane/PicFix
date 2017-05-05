@@ -41,15 +41,27 @@ export class CameraPage {
  /*Called every time view is closed*/
   ionViewWillLeave() {
   	CameraPreview.hide();
+
+     var overlay  = document.getElementById('overlayImg') as HTMLImageElement;
+     overlay.src =  "";
   }
 
 
  /*Called every time view is opened*/
   ionViewWillEnter() {
  	  CameraPreview.show();
-    this.presentToast();
+     var overlay  = document.getElementById('overlayImg') as HTMLImageElement;
+
+     var report = this.gVars.getCurrentReport();
+     if(report.reportType == 'pothole') { overlay.src = '/assets/overlays/pothole.png'; }
+     else if(report.reportType == 'car') { overlay.src = '/assets/overlays/car.png'; }
+    //this.presentToast();
 
 
+  }
+
+  ionViewDidEnter() {
+     this.gVars.presentToast('Please take a picture of the issue. \n \n (Hint: try to line your picture up with the overlay)');
   }
 
 
@@ -86,12 +98,17 @@ export class CameraPage {
 
   }
 
+  private flashOn = false;
   toggleFlash(){
   		console.log("toggling flash!");
+      this.flashOn =  !this.flashOn;
+      //if(this.flashOn) {CameraPreview.setFlashMode(CameraPreview.FLASH_MODE.OFF);}
+      //else {CameraPreview.setFlashMode(CameraPreview.FLASH_MODE.ON);}
   		/*this.navCtrl.push(CameraConfirmPage, {
   			picture: pictureData
   		});*/
-      this.presentToast();
+      if(this.flashOn) {this.gVars.presentToast('flash is now ON');}
+      else {this.gVars.presentToast('flash is now OFF');}
 
   }
 
@@ -100,16 +117,6 @@ export class CameraPage {
 
   }
 
-  presentToast() {
-    let toast = this.toastCtrl.create({
-      message: 'Please line the overlay up with the object',
-      duration: 3000,
-      position: 'top'
-
-    });
-    toast.present();
-    console.log('toast got called')
-  }
 
   refresh(){
     window['location'].reload();

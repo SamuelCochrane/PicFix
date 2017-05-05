@@ -41,16 +41,19 @@ export class OlprData {
 
 			function callback(error, response, body) {
 			    if (!error && response.statusCode == 200) {
-			        //var bodyObj = JSON.parse(body);
+			        var bodyObj = JSON.parse(body);
 
-			       // console.log(bodyObj.results[0]);
-			        //console.log('//////////////');
-			       // console.log(bodyObj.results[0].plate);
+			       //console.log(bodyObj.results[0]);
+			       //console.log('//////////////');
+			       //console.log(bodyObj.results[0].plate);
+
+			       if(bodyObj.results != null) {
 			        resolve(body);
+			       }
 
 			    } else {
 			    	console.log('ERROR ' + error);
-			    	reject(error);
+			    	reject(null);
 			    }
 			}
 		

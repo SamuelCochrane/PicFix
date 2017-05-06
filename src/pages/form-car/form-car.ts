@@ -4,38 +4,52 @@ import { NavController, NavParams } from 'ionic-angular';
 import { GlobalVars } from '../../providers/global-vars'
 import { OlprData } from '../../providers/olpr-data'
 
+
+import { AddInfoPage } from '../add-info/add-info';
 /*
   Generated class for the Form page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
+
+
 @Component({
   selector: 'page-form-car',
   templateUrl: 'form-car.html'
 })
 export class FormCarPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars, public oData :  OlprData) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FormPage');
+constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars, public oData :  OlprData) {
 
-    var previewImage = document.getElementById('formPicture') as HTMLImageElement;
+}
 
 
-	  var report = this.gVars.getCurrentReport();
-    previewImage.src = report.images;
+ionViewDidLoad() {
+  console.log('ionViewDidLoad FormPage');
 
-    this.oData.getData(report.images).then(function(response) {
-      alert("License Plate info found [" + response[0].plate + "], auto-filling form");
+  var previewImage = document.getElementById('formPicture') as HTMLImageElement;
+
+  var report = this.gVars.getCurrentReport();
+  previewImage.src = report.images;
+
+  this.oData.getData(report.images).then(function(response) {
+    alert("License Plate info found [" + response[0].plate + "], auto-filling form");
       //var dataObj = JSON.parse(response[0]);
       //this.autofillForm(dataObj);
-      console.log(response[0]);
-      });
+    console.log(response[0]);
+  });
 
 
+
+
+      // this.geolocation.getCurrentPosition().then((position) => {
+      //   console.log('My latitude : ', position.coords.latitude);
+      //   console.log('My longitude: ', position.coords.longitude);
+      // });
   }
+
 
 
   goToPothole() {
@@ -47,4 +61,9 @@ export class FormCarPage {
   autofillForm(data) {
     //TODO: set form fields.
   }
-}
+
+  goToAddInfoPage() {
+  	this.navCtrl.push(AddInfoPage, {});
+  }
+
+  }

@@ -8,12 +8,17 @@
 
   <ion-navbar>
     <ion-title>AddInfo</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="addMarker()"><ion-icon name="add"></ion-icon>Add Marker</button>
+    </ion-buttons>
+
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    <div #map id="map"></div>
 <h1>Additional Information</h1>
 	 <form>
 		<br>Additional Information:<br>

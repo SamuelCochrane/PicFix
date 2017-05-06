@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-//import { PotholePage } from '../pothole/pothole';
+import { AddInfoPage } from '../add-info/add-info';
 import { GlobalVars } from '../../providers/global-vars'
 import { OlprData } from '../../providers/olpr-data'
 
 
-import { AddInfoPage } from '../add-info/add-info';
 /*
   Generated class for the Form page.
 
@@ -41,6 +40,19 @@ ionViewDidLoad() {
     console.log(response[0]);
   });
 
+    this.oData.getData(report.images).then(function(response) {
+      var dataObj = JSON.parse(response.toString());
+      if(dataObj.results[0] != null) {
+            alert("License Plate info found [" + dataObj.results[0].plate + "], auto-filling form...");
+      } else {
+        alert("No License Plate info found. Please retake the picture or fill out the form manually.");
+      }
+      //this.autofillForm(dataObj);
+      //console.log("----------------------");
+      //console.log(response.toString());
+      //console.log("----------------------");
+      //console.log(dataObj.results[0].plate);
+      });
 
 
 
@@ -55,6 +67,10 @@ ionViewDidLoad() {
   goToPothole() {
     //this.navCtrl.push(PotholePage, {});
   }
+  
+  goToAddInfo() {
+    this.navCtrl.push(AddInfoPage, {});
+  }
 
 
   //takes in an OLPR data form, sets form fields to that info.
@@ -62,8 +78,5 @@ ionViewDidLoad() {
     //TODO: set form fields.
   }
 
-  goToAddInfoPage() {
-  	this.navCtrl.push(AddInfoPage, {});
-  }
 
   }

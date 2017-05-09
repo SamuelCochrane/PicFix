@@ -1,46 +1,54 @@
+
+
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <!--<ion-navbar>
+    <ion-title>Home</ion-title>-->
 
     <!-- firebase example - pls ignore -->
-    <ion-buttons end>
+    <!--<ion-buttons end>
       <button ion-button icon-only (click)="addSong()">
         <ion-icon name="add"></ion-icon>
       </button>
-    </ion-buttons>
+    </ion-buttons>-->
 
 
-  </ion-navbar>
+  <!--</ion-navbar>-->
 </ion-header>
 
-<ion-content padding>
-  <!-- <h2>Welcome to PicFix!</h2>
-  <p>
-    This is where we will have the 'Create Report button', that sends us to the camera direct or has a list of report types if we can manage to make more than 1.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p> -->
+<ion-content padding id="content">
+  <div id="aligner">
 
-  <!-- <button ion-button icon-left id="profileButton" (click) = goToProfilePage() color="secondary">
-    <ion-icon name="person"></ion-icon>
-    Profile
-  </button> -->
-  <button ion-button icon-left large id="categoriesButton" (click) = goToCategoriesPage() >
-    <ion-icon name="document"></ion-icon>
-    Create a report
+  <img src='/assets/imgs/icon.png'>
+
+
+  <h3 id="introText">
+    <h2>Welcome to PicFix!</h2>
+    <br>
+
+    PicFix allows you to report city issues in a snap, simply select the type of report and take a picture,
+    the majority of the report will be filled by contextual data from the picture/GPS.
+    <br>
+    <br>
+    Reports usually take around30sec to complete, <br> and you make a difference in your community! 
+  </h3>
+
+  <button ion-button large id="categoriesButton" (click) = goToCategoriesPage() >
+    <div>
+      <ion-icon name="document"></ion-icon>
+      <br>
+      <label>Create a report</label>
+    </div>
   </button>
 
   <!-- firebase example - pls ignore -->
-  <ion-list>
+  <!--<ion-list>
     <ion-item *ngFor="let song of songs | async" (click)="showOptions(song.$key, song.title)">
       {{song.title}}
     </ion-item>
-  </ion-list>
+  </ion-list>-->
 
 
-
+</div>
 
 
 

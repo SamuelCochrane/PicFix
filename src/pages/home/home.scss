@@ -1,20 +1,44 @@
 page-home {
-  #profileButton {
-    float: right;
-  }
 
   #categoriesButton {
-    //padding: $content-padding;
-    position: fixed;
-    bottom:0;
-    left: 0;
-    right: 0;
+  
+  padding-top: 60px;
+  padding-bottom: 60px;
+    
 
+  background-color: color($colors, midBlue);
+
+
+
+  text-align: center;
+
+
+  }
+  ion-icon {
+    font-size: 50px;
+  }
+
+  img {
+    padding-top: 20px;
   }
 
 
+  .content {
+      margin-top: 0px;
+      background-color: color($colors, darkBlue);
+      text-align: center;
+  }
 
 
+  h3 {
+      color: white;
+      font-size: 16px;
+      margin: 0px;
+      padding: 15px;
+      margin-bottom: 30px;
+      line-height: 20px;
+
+  }
 
 
 

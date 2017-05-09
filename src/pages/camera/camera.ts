@@ -102,7 +102,6 @@ export class CameraPage {
   toggleFlash(){
   		console.log("toggling flash!");
       this.flashOn =  !this.flashOn;
-      //TODO: get flash working
       //if(this.flashOn) {CameraPreview.setFlashMode(CameraPreview.FLASH_MODE.OFF);}
       //else {CameraPreview.setFlashMode(CameraPreview.FLASH_MODE.ON);}
   		/*this.navCtrl.push(CameraConfirmPage, {
@@ -113,6 +112,10 @@ export class CameraPage {
 
   }
 
+  createReportFile() {
+
+
+  }
 
 
   refresh(){

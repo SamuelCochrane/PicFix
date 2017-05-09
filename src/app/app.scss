@@ -17,20 +17,6 @@
 
 
 
-
-@import url('https://fonts.googleapis.com/css?family=Dosis');
-
-html, body, ion-app, ion-content, ion-page, .nav-decor, p {
-  //background-color: transparent;
-  font-family: 'Dosis', sans-serif;
+html, body, ion-app, ion-content, ion-page, .nav-decor {
+  background-color: transparent !important;
 }
-
-.button {
-	background-color: color($colors, darkBlue);
-}
-
-
-
-
-
-

@@ -21,8 +21,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { GlobalVars } from '../providers/global-vars';
 import { OlprData } from '../providers/olpr-data';
 
-import { Geolocation } from '@ionic-native/geolocation';
-
 // import angular
 import { AngularFireModule } from 'angularfire2';
 
@@ -75,7 +73,6 @@ export const firebaseConfig = {
     SplashScreen,
     GlobalVars,
     OlprData,
-    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -34,9 +34,13 @@
   <allow-navigation href="http://173.250.182.218:8100"/>
   <allow-navigation href="*"/>
   <allow-navigation href="http://173.250.205.129:8100"/>
+<<<<<<< HEAD
   <allow-navigation href="http://173.250.207.238:8100"/>
   <allow-navigation href="http://10.0.1.4:8100"/>
   <allow-navigation href="http://108.179.189.112:8100"/>
+=======
+  <allow-navigation href="http://69.91.160.187:8100"/>
+>>>>>>> 5b2dd5a163721396bf30732ebb68e26f6494465b
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>

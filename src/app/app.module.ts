@@ -24,6 +24,8 @@ import { OlprData } from '../providers/olpr-data';
 // import angular
 import { AngularFireModule } from 'angularfire2';
 
+import { Geolocation } from '@ionic-native/geolocation';
+
 export const firebaseConfig = {
     apiKey: "AIzaSyAth5ukrQdumsPTAv4BtBlxvufx-Jje3zQ",
     authDomain: "picfix-b2a74.firebaseapp.com",
@@ -72,6 +74,7 @@ export const firebaseConfig = {
     StatusBar,
     SplashScreen,
     GlobalVars,
+    Geolocation,
     OlprData,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

@@ -16,7 +16,7 @@
 // automatically applied to the <body> element in the app.
 
 
-@import url('https://fonts.googleapis.com/css?family=Dosis');
+@import url('https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600');
 
 html, body, ion-app, ion-content, ion-page, .nav-decor, p {
   //background-color: transparent;
@@ -25,4 +25,12 @@ html, body, ion-app, ion-content, ion-page, .nav-decor, p {
 
 .button {
 	background-color: color($colors, darkBlue);
+	font-family: 'Dosis', sans-serif;
+	font-weight: 500;
+	border-radius: 15px;
+
+}
+
+h2,h3 {
+	font-weight: 400;
 }

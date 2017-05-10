@@ -1,7 +1,38 @@
 page-categories {
-  #descriptionsButton {
-    position: absolute;
-    bottom: 40px;
+  
+  h2 {
+  	color: white;
   }
+
+
+  .button {
+  	background-color: color($colors, midBlue);
+  	width: 40vw;
+  	height: 40vw;
+  	margin: 3vw;
+  	font-size: 15px;
+    display: inline-block;
+  }
+
+  
+
+  img {
+    width: 70%;
+  }
+  
+  ion-icon {
+    color: white;
+    display: block;
+  }
+
+  div {
+  	text-align: center;
+  }
+
+  .content {
+    margin-top: 0px;
+    background-color: color($colors, darkBlue);
+    text-align: center;
+}
 
 }

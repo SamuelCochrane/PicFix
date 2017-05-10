@@ -7,7 +7,43 @@
 
 <ion-content padding>
   <img id="formPicture" width="300"/>
-  <form>
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>License Number</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>State</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Vehicle Make</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Vehicle Color</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Length of time parked</ion-label>
+        <ion-select [(ngModel)]="time" [selectOptions]="timeOpts">
+          <ion-option>Over 3 days</ion-option>
+          <ion-option>Over 1 week</ion-option>
+          <ion-option>Over 1 month</ion-option>
+          <ion-option>Over 3 months</ion-option>
+          <ion-option (select)="stpSelect()"></ion-option>
+        </ion-select>
+      </ion-item>
+
+  </ion-list>
+
+
+  <!-- <form>
     <br>
     <button ion-button icon-only>
       <ion-icon name="locate"></ion-icon>
@@ -15,7 +51,7 @@
   <input type="text" name="sample1"><br>
   Description:<br>
   <input type="text" name="sample2"><br>
-</form>
+</form> -->
 
 
   <button ion-button id="nextButton" (click) = goToAddInfo() >

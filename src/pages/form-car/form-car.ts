@@ -18,10 +18,17 @@ import { OlprData } from '../../providers/olpr-data'
   templateUrl: 'form-car.html'
 })
 export class FormCarPage {
+  time: string;
+
+  timeOpts: { title: string, subTitle: string };
+
 
 
 constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars, public oData :  OlprData) {
-
+  this.timeOpts = {
+      title: 'Length of time parked',
+      subTitle: 'Select time'
+    };
 }
 
 
@@ -67,7 +74,7 @@ ionViewDidLoad() {
   goToPothole() {
     //this.navCtrl.push(PotholePage, {});
   }
-  
+
   goToAddInfo() {
     this.navCtrl.push(AddInfoPage, {});
   }
@@ -77,6 +84,12 @@ ionViewDidLoad() {
   autofillForm(data) {
     //TODO: set form fields.
   }
+
+  stpSelect() {
+    console.log('STP selected');
+  }
+
+
 
 
   }

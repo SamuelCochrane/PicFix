@@ -19,17 +19,18 @@
 
 <ion-content padding>
     <div #map id="map"></div>
-<h1>Additional Information</h1>
-	 <form>
-		<br>Additional Information:<br>
-		 <input type="text" name="addInfo"><br>
+
+    <ion-item text-wrap>
+      <ion-label floating>Additional Information</ion-label>
+      <ion-textarea></ion-textarea>
+    </ion-item>
+
 
 		   <ion-item>
 		    	<ion-label>Send Anonymously</ion-label>
 		    	<ion-checkbox name = "anonymous" [(ngModel)]="anonymous"></ion-checkbox>
 		  </ion-item>
 
-	</form>
 	<button ion-button lid="submitButton" (click) = shareReport() >
 		Submit
 	</button>

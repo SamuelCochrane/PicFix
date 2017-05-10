@@ -50,7 +50,10 @@ export const firebaseConfig = {
     DescriptionsPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      scrollAssist: false,
+      autoFocusAssist: false
+    }),
     AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
@@ -76,4 +79,6 @@ export const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
+
+
 export class AppModule {}

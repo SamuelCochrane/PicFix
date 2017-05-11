@@ -1,14 +1,12 @@
 page-camera {
 
-
-
 .button {
 	vertical-align: center;
 	background-color: color($colors, midBlue);
 	border: none;
 	border-radius: 15%;
 
-	top: 15%;
+	top: 10%;
 
 	display: inline-block;
 	position: relative;
@@ -17,6 +15,10 @@ page-camera {
 	height: 25vw;
 	font-size: 35px;
 }
+#buttonTakePhoto{
+	width: 30vw;
+	height: 30vw;
+  }
 
 #buttonContainer {
 	position: absolute;

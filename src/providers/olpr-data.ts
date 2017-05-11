@@ -30,7 +30,7 @@ export class OlprData {
 			var dataString = img.substring(22); //cut off the leading "data type" info, leaving just the stringified pic
 
 			var options = {
-			    url: 'https://api.openalpr.com/v2/recognize_bytes?secret_key=sk_df7b1684aa2e299660d8c087&recognize_vehicle=0&country=us&return_image=0&topn=10',
+			    url: 'https://api.openalpr.com/v2/recognize_bytes?secret_key=sk_df7b1684aa2e299660d8c087&recognize_vehicle=1&country=us&return_image=0&topn=2',
 			    method: 'POST',
 			    body: dataString
 			};
@@ -42,10 +42,12 @@ export class OlprData {
 			function callback(error, response, body) {
 			    if (!error && response.statusCode == 200) {
 			        var bodyObj = JSON.parse(body);
+					
+					// console.log('//////////////');
+			  //      console.log(bodyObj.results[0].plate);
+			  //      console.log(bodyObj.results[0].region);
+			  //      console.log(bodyObj.results[0].vehicle.color[0].name);
 
-			       //console.log(bodyObj.results[0]);
-			       //console.log('//////////////');
-			       //console.log(bodyObj.results[0].plate);
 
 			       if(bodyObj.results != null) {
 			        resolve(body);
@@ -62,7 +64,7 @@ export class OlprData {
 	}
 }
 
-/*
+/* EXAMPLE OLPR OUTPUT
 {
 	"data_type": "alpr_results", 
 	"epoch_time": 1493500437687, 

@@ -15,6 +15,11 @@ import { OlprData } from '../../providers/olpr-data'
   templateUrl: 'form-car.html'
 })
 export class FormCarPage {
+  public valueLicensePlate: string;
+  public valueLicenseState: string;
+  public valueVehicleMake: string;
+  public valueVehicleColor: string;
+
   time: string;
 
   timeOpts: { title: string, subTitle: string };
@@ -33,13 +38,15 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public g
     var previewImage = document.getElementById('formPicture') as HTMLImageElement;
 
 
+
 	  var report = this.gVars.getCurrentReport();
     previewImage.src = report.images;
-
+    var _this = this;
     this.oData.getData(report.images).then(function(response) {
       var dataObj = JSON.parse(response.toString());
-      if(dataObj.results[0] != null) {
+      if(dataObj.results[0] != null && dataObj.results[0].plate != null) {
             alert("License Plate info found [" + dataObj.results[0].plate + "], auto-filling form...");
+            _this.autofillForm(dataObj.results[0]);
       } else {
         alert("No License Plate info found. Please retake the picture or fill out the form manually.");
       }
@@ -64,10 +71,15 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public g
     this.navCtrl.push(AddInfoPage, {});
   }
 
-
   //takes in an OLPR data form, sets form fields to that info.
   autofillForm(data) {
-    //TODO: set form fields.
+    console.log("autofilling form");
+    //(<HTMLInputElement>document.getElementById("elementLicensePlate")).value = data.plate;
+    this.valueLicensePlate = data.plate.toUpperCase();
+    this.valueLicenseState = data.region.toUpperCase();
+    this.valueVehicleMake = data.vehicle.make[0].name.toUpperCase();
+    this.valueVehicleColor = data.vehicle.color[0].name.toUpperCase();
+
   }
 
   stpSelect() {

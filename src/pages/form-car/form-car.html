@@ -1,36 +1,39 @@
 <ion-header>
-  <ion-navbar>
+  <!--<ion-navbar>
     <ion-title>Form</ion-title>
-  </ion-navbar>
+  </ion-navbar>-->
 </ion-header>
 
-<ion-content padding>
+<ion-content padding id = "content">
   <img id="formPicture" width="300"/>
   <ion-list>
 
-    <ion-item>
-      <ion-label floating>License Number</ion-label>
-      <ion-input type="text"></ion-input>
+    <ion-item id = "item">
+      <ion-label id="label" floating>License Number</ion-label>
+      <ion-input id="input" type="text" [(ngModel)]="valueLicensePlate" required></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label floating>State</ion-label>
-      <ion-input type="text"></ion-input>
+    <ion-item id = "item">
+      <ion-label id="label" floating>State</ion-label>
+      <ion-input id="input" type="text" [(ngModel)]="valueLicenseState" required></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label floating>Vehicle Make</ion-label>
-      <ion-input type="text"></ion-input>
+    <ion-item id = "item">
+      <ion-label id="label" floating>Vehicle Manufacturer (Optional) </ion-label>
+      <ion-input id="input" type="text" [(ngModel)]="valueVehicleMake"></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label floating>Vehicle Color</ion-label>
-      <ion-input type="text"></ion-input>
+    <ion-item id = "item">
+      <ion-label id="label" floating>Vehicle Color (Optional) </ion-label>
+      <ion-input id="input" type="text" [(ngModel)]="valueVehicleColor"></ion-input>
     </ion-item>
 
-    <ion-item>
-        <ion-label>Length of time parked</ion-label>
-        <ion-select [(ngModel)]="time" [selectOptions]="timeOpts">
+    <br>
+    <br>
+    
+    <ion-item id = "item">
+        <ion-label id="label" >Length of time parked</ion-label>
+        <ion-select id="input" [(ngModel)]="time" [selectOptions]="timeOpts" required>
           <ion-option>Over 3 days</ion-option>
           <ion-option>Over 1 week</ion-option>
           <ion-option>Over 1 month</ion-option>

@@ -1,7 +1,33 @@
-page-form {
+page-form-car {
   #formPicture {
-    position: absolute;
+    position: relative;
+    width: 40vw;
   }
+
+ #content {
+    margin-top: 0px;
+    background-color: color($colors, darkBlue);
+    text-align: center;
+ }
+
+ #item {
+ 	background-color: transparent;
+ 	color: white;
+
+
+ }
+ #label {
+ 	color: white;
+
+ }
+ #input {
+
+ }
+
+ #nextButton {
+ 	 background-color: color($colors, midBlue);
+
+ }
 
 
 

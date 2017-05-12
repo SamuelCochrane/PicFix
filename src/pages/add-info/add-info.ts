@@ -41,21 +41,21 @@ export class AddInfoPage {
   }
 
   loadMap(){
-
     this.geolocation.getCurrentPosition().then((position) => {
+      alert('yay');
 
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
+      alert('woo')
       let mapOptions = {
         center: latLng,
         zoom: 15,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
-
+      alert('yeeee');
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-
+      alert('uhhuuuhh');
     }, (err) => {
-      console.log(err);
+      alert(err.code + " " + err.message);
     });
   }
 

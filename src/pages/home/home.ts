@@ -7,6 +7,10 @@ import { ToastController } from 'ionic-angular';
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
 
 
+declare var cordova: any;
+
+
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -38,8 +42,66 @@ ionViewDidLoad() {
     // launch modal popup
     //clear the backstack
   }
-}
 
+//   cordova.plugins.diagnostic.isLocationAvailable(function(available){
+//     console.log("Location is " + (available ? "available" : "not available"));
+//   }, function(error){
+//       console.error("The following error occurred: "+error);
+//   });
+
+//   cordova.plugins.diagnostic.requestLocationAuthorization(function(status){
+//     switch(status){
+//         case cordova.plugins.diagnostic.permissionStatus.NOT_REQUESTED:
+//             console.log("Permission not requested");
+//             break;
+//         case cordova.plugins.diagnostic.permissionStatus.GRANTED:
+//             console.log("Permission granted");
+//             break;
+//         case cordova.plugins.diagnostic.permissionStatus.DENIED:
+//             console.log("Permission denied");
+//             break;
+//         case cordova.plugins.diagnostic.permissionStatus.DENIED_ALWAYS:
+//             console.log("Permission permanently denied");
+//             break;
+//     }
+// }, function(error){
+//     console.error(error);
+// });
+
+  cordova.plugins.diagnostic.requestRuntimePermission(function(status){
+    switch(status){
+        case cordova.plugins.diagnostic.permissionStatus.GRANTED:
+            console.log("Permission granted to use the camera");
+            break;
+        case cordova.plugins.diagnostic.permissionStatus.NOT_REQUESTED:
+            console.log("Permission to use the camera has not been requested yet");
+            break;
+        case cordova.plugins.diagnostic.permissionStatus.DENIED:
+            console.log("Permission denied to use the camera - ask again?");
+            break;
+        case cordova.plugins.diagnostic.permissionStatus.DENIED_ALWAYS:
+            console.log("Permission permanently denied to use the camera - guess we won't be using it then!");
+            break;
+    }
+}, function(error){
+    console.error("The following error occurred: "+error);
+}, cordova.plugins.diagnostic.permission.ACCESS_COARSE_LOCATION);
+//   var permissions = cordova.plugins.permissions;
+//   permissions.hasPermission(permissions.ACCESS_COARSE_LOCATION, function( status ){
+//   if ( status.hasPermission ) {
+//     console.log("Yes :D ");
+//   }
+//   else {
+//     console.warn("No :( ");
+//   }
+// });
+
+
+
+// permissions.requestPermission(permissions.ACCESS_COARSE_LOCATION, console.log('yay'), console.log('oh'));
+
+
+}
 // ionViewWillEnter() {
 //   this.presentToast()
 // }

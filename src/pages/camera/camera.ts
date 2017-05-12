@@ -53,8 +53,8 @@ export class CameraPage {
      var overlay  = document.getElementById('overlayImg') as HTMLImageElement;
 
      var report = this.gVars.getCurrentReport();
-     if(report.reportType == 'pothole') { overlay.src = '/assets/overlays/pothole.png'; }
-     else if(report.reportType == 'car') { overlay.src = '/assets/overlays/car.png'; }
+     if(report.reportType == 'pothole') { overlay.src = 'assets/overlays/pothole.png'; }
+     else if(report.reportType == 'car') { overlay.src = 'assets/overlays/car.png'; }
     //this.presentToast();
 
 

@@ -27,6 +27,9 @@ import { AngularFireModule } from 'angularfire2';
 import { Geolocation } from '@ionic-native/geolocation';
 
 
+import {Permissions} from 'ionic-native';
+
+
 export const firebaseConfig = {
     apiKey: "AIzaSyAth5ukrQdumsPTAv4BtBlxvufx-Jje3zQ",
     authDomain: "picfix-b2a74.firebaseapp.com",

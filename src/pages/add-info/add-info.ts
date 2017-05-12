@@ -3,6 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { GlobalVars } from '../../providers/global-vars';
 import { Geolocation } from '@ionic-native/geolocation';
+import { AlertController } from 'ionic-angular';
+
 
 declare var google;
 
@@ -24,12 +26,18 @@ export class AddInfoPage {
   @ViewChild('map') mapElement: ElementRef;
   map: any;
 
-  	constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars, public geolocation: Geolocation) {
+  	constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars, public geolocation: Geolocation, public alertCtrl: AlertController) {
   		this.pushPage = AddInfoPage;
   }
 
   ionViewDidLoad(){
+    var previewImage = document.getElementById('formPicture2') as HTMLImageElement;
+
+    var report = this.gVars.getCurrentReport();
+    previewImage.src = report.images;
+
     this.loadMap();
+
   }
 
   loadMap(){
@@ -54,6 +62,7 @@ export class AddInfoPage {
 
 
 shareReport() {
+  this.showSubmitAlert();
 	this.navCtrl.push(HomePage, {
     param1: 'submittedReport'
 
@@ -86,4 +95,14 @@ addInfoWindow(marker, content){
   });
 
 }
+
+
+  showSubmitAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Thank You!',
+      subTitle: 'Your report has been submitted!',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
 }

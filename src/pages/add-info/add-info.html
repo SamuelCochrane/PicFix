@@ -16,21 +16,26 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding id="content">
+  <img id="formPicture2" width="300"/>
+
     <div #map id="map"></div>
 
-    <ion-item text-wrap>
-      <ion-label floating>Additional Information</ion-label>
+    <ion-label id="label">Additional Information</ion-label>
+    <ion-item text-wrap id="box">
       <ion-textarea></ion-textarea>
     </ion-item>
+<br>
 
 
-		   <ion-item>
+		   <ion-item id="box">
 		    	<ion-label>Send Anonymously</ion-label>
 		    	<ion-checkbox name = "anonymous" [(ngModel)]="anonymous"></ion-checkbox>
 		  </ion-item>
+<br>
+<br>
 
-	<button ion-button lid="submitButton" (click) = shareReport() >
+	<button ion-button lid="submitButton" (click) = shareReport() id="submit">
 		Submit
 	</button>
 </ion-content>

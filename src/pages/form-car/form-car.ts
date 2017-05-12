@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AddInfoPage } from '../add-info/add-info';
-import { GlobalVars } from '../../providers/global-vars'
-import { OlprData } from '../../providers/olpr-data'
+import { GlobalVars } from '../../providers/global-vars';
+import { OlprData } from '../../providers/olpr-data';
+import { AlertController } from 'ionic-angular';
+
 
 /*
   Generated class for the Form page.
@@ -25,7 +27,7 @@ export class FormCarPage {
   timeOpts: { title: string, subTitle: string };
 
 
-constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars, public oData :  OlprData) {
+constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars, public oData :  OlprData, public alertCtrl: AlertController) {
   this.timeOpts = {
       title: 'Length of time parked',
       subTitle: 'Select time'
@@ -45,10 +47,11 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public g
     this.oData.getData(report.images).then(function(response) {
       var dataObj = JSON.parse(response.toString());
       if(dataObj.results[0] != null && dataObj.results[0].plate != null) {
-            alert("License Plate info found [" + dataObj.results[0].plate + "], auto-filling form...");
+            _this.showOlprAlert(dataObj.results[0].plate);
             _this.autofillForm(dataObj.results[0]);
       } else {
-        alert("No License Plate info found. Please retake the picture or fill out the form manually.");
+        _this.showNoOlprAlert();
+        // alert("No License Plate info found. Please retake the picture or fill out the form manually.");
       }
       //this.autofillForm(dataObj);
       //console.log("----------------------");
@@ -84,6 +87,25 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public g
 
   stpSelect() {
     console.log('STP selected');
+  }
+
+  showNoOlprAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'No license info found.',
+      subTitle: 'Please retake the picture or fill out the form manually.',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+
+  showOlprAlert(licensePlate:String) {
+    let alert = this.alertCtrl.create({
+      title: 'License info found!',
+      subTitle: 'Found license plate [' + licensePlate + '], autofilling form...',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 

@@ -71,6 +71,18 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public g
 
 
   goToAddInfo() {
+
+    var report = this.gVars.getCurrentReport();
+
+    report.carInfo = {
+      licensePlate : this.valueLicensePlate,
+      licenseState : this.valueLicenseState,
+      vehicleMake : this.valueVehicleMake,
+      vehicleColor : this.valueVehicleColor
+    }
+
+    this.gVars.updateCurrentReport(report);
+
     this.navCtrl.push(AddInfoPage, {});
   }
 

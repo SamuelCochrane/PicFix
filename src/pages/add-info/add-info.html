@@ -23,7 +23,7 @@
 
     <ion-label id="label">Additional Information</ion-label>
     <ion-item text-wrap id="box">
-      <ion-textarea></ion-textarea>
+      <ion-textarea type="text" [(ngModel)] = "addInfoComments"></ion-textarea>
     </ion-item>
 <br>
 
@@ -35,7 +35,7 @@
 <br>
 <br>
 
-	<button ion-button lid="submitButton" (click) = shareReport() id="submit">
+	<button ion-button lid="submitButton" (click) = submitReport() id="submit">
 		Submit
 	</button>
 </ion-content>

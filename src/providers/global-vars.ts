@@ -18,17 +18,8 @@ export class GlobalVars {
   }
 
   public createCurrentReport() {
-  	var report = {
-  		reporterInfo: {
-  			firstName : "Slem",
-  			lastName : "cerkrun"
-  		},
-  		images: {
-  		},
-  		otherInfo: {
-
-  		}
-  	}
+  	var report = {}
+    
   	localStorage.setItem('currentReport', JSON.stringify(report));
   }
 

@@ -4,6 +4,8 @@ import { HomePage } from '../home/home';
 import { GlobalVars } from '../../providers/global-vars';
 import { Geolocation } from '@ionic-native/geolocation';
 import { AlertController } from 'ionic-angular';
+import {AngularFire, FirebaseListObservable} from 'angularfire2';
+
 
 
 declare var google;
@@ -23,11 +25,18 @@ declare var google;
 })
 export class AddInfoPage {
  	pushPage;
+  public addInfoComments: string;
+
+  finalReport: FirebaseListObservable<any>;
+
+
   @ViewChild('map') mapElement: ElementRef;
   map: any;
 
-  	constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars, public geolocation: Geolocation, public alertCtrl: AlertController) {
+  	constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars, public geolocation: Geolocation, public alertCtrl: AlertController, af: AngularFire) {
   		this.pushPage = AddInfoPage;
+      this.finalReport = af.database.list('/finalReport');
+
   }
 
   ionViewDidLoad(){
@@ -61,12 +70,51 @@ export class AddInfoPage {
 
 
 
-shareReport() {
-  this.showSubmitAlert();
+submitReport() {
+  //get current report
+  //~~~~report.anonymous = true, report.geolocation {Lat : X, Long : X}, report.additionalComments = X
+  //update report in memory
+
+  //send data to firebase - data = this.gVars.getCurrentReport()
+
+  // this.showSubmitAlert();
+
+  var report = this.gVars.getCurrentReport();
+
+  report.additionalInfo = {
+    // geolocation : {
+    //   lat_long : this.latLng
+    // },
+    additionalComments : this.addInfoComments,
+    // anonymous : t or f
+
+
+
+  }
+
+  this.gVars.updateCurrentReport(report);
+
+  let submitAlert = this.alertCtrl.create({
+    title: 'Thank You!',
+    message: "Your report has been sent to the city!",
+    buttons: [
+      {
+        text: 'OK',
+        handler: data => {
+          this.finalReport.push(this.gVars.getCurrentReport())
+        }
+      }
+    ]
+  });
+  submitAlert.present();
+
+
 	this.navCtrl.push(HomePage, {
     param1: 'submittedReport'
 
   });
+  console.log("report sent to firebase")
+
 
 }
 

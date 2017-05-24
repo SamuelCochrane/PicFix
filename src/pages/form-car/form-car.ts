@@ -78,7 +78,8 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public g
       licensePlate : this.valueLicensePlate,
       licenseState : this.valueLicenseState,
       vehicleMake : this.valueVehicleMake,
-      vehicleColor : this.valueVehicleColor
+      vehicleColor : this.valueVehicleColor,
+      time : this.time
     }
 
     this.gVars.updateCurrentReport(report);

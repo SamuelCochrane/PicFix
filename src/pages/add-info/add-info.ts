@@ -43,7 +43,7 @@ export class AddInfoPage {
     var previewImage = document.getElementById('formPicture2') as HTMLImageElement;
 
     var report = this.gVars.getCurrentReport();
-    previewImage.src = report.images;
+    previewImage.src = report.image;
 
     this.loadMap();
 
@@ -114,7 +114,7 @@ submitReport() {
 
   var  finalReport;
 
-  if (report.reportType == "car") {  
+  if (report.reportType == "car") {
     finalReport = {
             additionalInfo : report.additionalInfo,
             carInfo : report.carInfo,
@@ -139,7 +139,13 @@ submitReport() {
       {
         text: 'OK',
         handler: data => {
-          this.finalReport.push(finalReport);
+          this.finalReport.push(finalReport), function(error) {
+            if (error) {
+              console.log("error: " + error)
+            } else {
+              console.log("report sent to firebase")
+            }
+          }
         }
       }
     ]
@@ -152,7 +158,7 @@ submitReport() {
 
   }*/);
 
-  console.log("report sent to firebase");
+
 
 
 }

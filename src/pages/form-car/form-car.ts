@@ -42,9 +42,9 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public g
 
 
 	  var report = this.gVars.getCurrentReport();
-    previewImage.src = report.images;
+    previewImage.src = report.image;
     var _this = this;
-    this.oData.getData(report.images).then(function(response) {
+    this.oData.getData(report.image).then(function(response) {
       var dataObj = JSON.parse(response.toString());
       if(dataObj.results[0] != null && dataObj.results[0].plate != null) {
             _this.showOlprAlert(dataObj.results[0].plate);

@@ -25,7 +25,7 @@ declare var google;
 })
 export class AddInfoPage {
  	pushPage;
-  public addInfoComments: string;
+  public addInfoComments: " ";
 
   finalReport: FirebaseListObservable<any>;
 
@@ -49,20 +49,28 @@ export class AddInfoPage {
 
   }
 
+  public geoloc;
   loadMap(){
     this.geolocation.getCurrentPosition().then((position) => {
-      alert('yay');
+
+      this.geoloc = position.coords;
+      //alert('yay');
 
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      alert('woo')
+      //alert('woo')
       let mapOptions = {
         center: latLng,
         zoom: 15,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        draggable : false,
+        navigationControl : false,
+        scrollwheel : false
       }
-      alert('yeeee');
+      //alert('yeeee');
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-      alert('uhhuuuhh');
+
+      this.addMarker();
+      //alert('uhhuuuhh');
     }, (err) => {
       alert(err.code + " " + err.message);
     });
@@ -78,21 +86,41 @@ submitReport() {
   //send data to firebase - data = this.gVars.getCurrentReport()
 
   // this.showSubmitAlert();
-
   var report = this.gVars.getCurrentReport();
 
   report.additionalInfo = {
-    // geolocation : {
-    //   lat_long : this.latLng
-    // },
-    additionalComments : this.addInfoComments,
-    // anonymous : t or f
-
-
-
+    geolocation : {
+      Lat : this.geoloc.latitude,
+      Lng : this.geoloc.longitude
+    },
+    additionalComments : this.addInfoComments + "",
+    anonymous : false //TODO: make this do the thing
   }
 
   this.gVars.updateCurrentReport(report);
+
+
+
+
+  var  finalReport;
+
+  if (report.reportType == "car") {  
+    finalReport = {
+            additionalInfo : report.additionalInfo,
+            carInfo : report.carInfo,
+            image : report.image,
+            reportType : report.reportType
+    }
+  } else {
+    finalReport = {
+            additionalInfo : report.additionalInfo,
+            image : report.image,
+            reportType : report.reportType
+    }
+  }
+
+
+
 
   let submitAlert = this.alertCtrl.create({
     title: 'Thank You!',
@@ -101,7 +129,7 @@ submitReport() {
       {
         text: 'OK',
         handler: data => {
-          this.finalReport.push(this.gVars.getCurrentReport())
+          this.finalReport.push(finalReport);
         }
       }
     ]
@@ -113,7 +141,7 @@ submitReport() {
     param1: 'submittedReport'
 
   });
-  console.log("report sent to firebase")
+  console.log("report sent to firebase");
 
 
 }

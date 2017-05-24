@@ -75,12 +75,13 @@ export class CameraPage {
 
     	//save pic to local storage
      	var pic = 'data:image/jpeg;base64,' + imgData;
+      //var pic = imgData;
 
      	var report = _this.gVars.getCurrentReport();
       //console.log(report)
 
 
-     	report.images = pic;
+     	report.image = pic;
 
      	_this.gVars.updateCurrentReport(report);
 

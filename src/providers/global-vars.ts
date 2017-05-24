@@ -18,7 +18,9 @@ export class GlobalVars {
   }
 
   public createCurrentReport() {
-  	var report = {}
+  	var report = {
+      
+    };
     
   	localStorage.setItem('currentReport', JSON.stringify(report));
   }

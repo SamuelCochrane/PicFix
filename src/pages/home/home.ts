@@ -39,7 +39,8 @@ goToProfilePage() {
 ionViewDidLoad() {
   console.log("PARAM 1 WAS: " + this.parameter1);
   if (this.parameter1 == "submittedReport") {
-    // launch modal popup
+    //clear old report from memory
+    localStorage.removeItem('currentReport');
     //clear the backstack
   }
 

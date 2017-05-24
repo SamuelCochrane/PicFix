@@ -88,11 +88,21 @@ submitReport() {
   // this.showSubmitAlert();
   var report = this.gVars.getCurrentReport();
 
-  report.additionalInfo = {
-    geolocation : {
+  var geolocation
+  if(this.geoloc != null) {
+    geolocation = {
       Lat : this.geoloc.latitude,
       Lng : this.geoloc.longitude
-    },
+    }
+  } else {
+    geolocation = {
+      Lat : "null",
+      Lng : "null"
+    }
+  }
+
+  report.additionalInfo = {
+    geolocation,
     additionalComments : this.addInfoComments + "",
     anonymous : false //TODO: make this do the thing
   }
@@ -137,10 +147,11 @@ submitReport() {
   submitAlert.present();
 
 
-	this.navCtrl.push(HomePage, {
+	this.navCtrl.popToRoot(/*{
     param1: 'submittedReport'
 
-  });
+  }*/);
+
   console.log("report sent to firebase");
 
 

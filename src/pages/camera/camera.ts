@@ -24,7 +24,7 @@ export class CameraPage {
   /*Called first time page is opened*/
   ionViewDidLoad() {
     console.log('ionViewDidLoad CameraPage');
-
+/*
     CameraPreview.startCamera({
     	x: 0,
     	y: 0,
@@ -34,7 +34,7 @@ export class CameraPage {
     	toBack: true,
     	tapPhoto: false,
     	previewDrag: false
-    });
+    });*/
 
   }
 
@@ -42,26 +42,53 @@ export class CameraPage {
   ionViewWillLeave() {
   	CameraPreview.hide();
 
-     var overlay  = document.getElementById('overlayImg') as HTMLImageElement;
-     overlay.src =  "";
+     //var overlay  = document.getElementById('overlayImg') as HTMLImageElement;
+     //overlay.src =  "";
   }
 
 
  /*Called every time view is opened*/
   ionViewWillEnter() {
- 	  CameraPreview.show();
-     var overlay  = document.getElementById('overlayImg') as HTMLImageElement;
 
-     var report = this.gVars.getCurrentReport();
-     if(report.reportType == 'pothole') { overlay.src = 'assets/overlays/pothole.png'; }
-     else if(report.reportType == 'car') { overlay.src = 'assets/overlays/car.png'; }
-    //this.presentToast();
+    CameraPreview.startCamera({
+      x: 0,
+      y: 0,
+      width: window.screen.width,
+      height: window.screen.height - 150,
+      camera: "back",
+      toBack: true,
+      tapPhoto: false,
+      previewDrag: false
+    });
+ 	  //CameraPreview.show();
+    this.showOverlay();
+    
 
 
   }
 
   ionViewDidEnter() {
      this.gVars.presentToast('Please take a picture of the issue. \n \n (Hint: try to line your picture up with the overlay)');
+
+
+  }
+
+  showOverlay() {
+    CameraPreview.hide();
+    CameraPreview.show();
+    console.log('~~~~~~~~~~~~~~');
+
+     var overlay  = document.getElementById('overlayImg') as HTMLImageElement;
+
+     var report = this.gVars.getCurrentReport();
+
+    console.log(report.reportType);
+    console.log(overlay.src);
+     if(report.reportType == 'pothole') { overlay.src = 'assets/overlays/pothole.png'; }
+     else if(report.reportType == 'car') { overlay.src = 'assets/overlays/car.png'; }
+
+    console.log(overlay.src);
+    overlay.style.zIndex = "-1";
   }
 
 

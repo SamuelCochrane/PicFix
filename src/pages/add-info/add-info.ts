@@ -139,16 +139,15 @@ submitReport() {
       {
         text: 'OK',
         handler: data => {
-          this.finalReport.push(finalReport), function(error) {
-            if (error) {
-              console.log("error: " + error)
-            } else {
-              console.log("report sent to firebase")
-            }
+          this.finalReport.push(finalReport) //, function(error) {
+            // if (error) {
+            //   console.log("error: " + error)
+            // } else {
+            //   console.log("report sent to firebase")
+            // }
           }
         }
-      }
-    ]
+      ]
   });
   submitAlert.present();
 

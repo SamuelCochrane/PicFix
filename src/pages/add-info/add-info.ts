@@ -5,6 +5,8 @@ import { GlobalVars } from '../../providers/global-vars';
 import { Geolocation } from '@ionic-native/geolocation';
 import { AlertController } from 'ionic-angular';
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
+import * as firebase from 'firebase';
+
 
 
 
@@ -32,11 +34,13 @@ export class AddInfoPage {
 
   @ViewChild('map') mapElement: ElementRef;
   map: any;
+  private af:any;
+
 
   	constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars, public geolocation: Geolocation, public alertCtrl: AlertController, af: AngularFire) {
   		this.pushPage = AddInfoPage;
       this.finalReport = af.database.list('/finalReport');
-
+      this.af = af;
   }
 
   ionViewDidLoad(){
@@ -79,6 +83,7 @@ export class AddInfoPage {
 
 
 submitReport() {
+
   //get current report
   //~~~~report.anonymous = true, report.geolocation {Lat : X, Long : X}, report.additionalComments = X
   //update report in memory
@@ -133,13 +138,28 @@ submitReport() {
 
 
   let submitAlert = this.alertCtrl.create({
+
     title: 'Thank You!',
     message: "Your report has been sent to the city!",
     buttons: [
       {
         text: 'OK',
         handler: data => {
-          this.finalReport.push(finalReport) //, function(error) {
+          let storage_url = 'images/' + (new Date()).getTime() + '.jpeg';
+
+          // If we want to go back to base 64, just delete this block :)
+          // finalReport.image = storage_url;
+          // let storage = firebase.storage().ref();
+          // storage.child(storage_url).putString(report.image, 'data_url').then(function(snapshot) {
+          //   console.log('Uploaded a base64 string!');
+          // });
+          //
+
+
+
+          this.finalReport.push(finalReport);
+
+
             // if (error) {
             //   console.log("error: " + error)
             // } else {
@@ -152,6 +172,7 @@ submitReport() {
   submitAlert.present();
 
 
+
 	this.navCtrl.popToRoot(/*{
     param1: 'submittedReport'
 
@@ -161,7 +182,7 @@ submitReport() {
 
 
 }
-
+//  firebase auth stuff: if request.auth != null
 addMarker(){
 
   let marker = new google.maps.Marker({

@@ -62,7 +62,7 @@ export class CameraPage {
     });
  	  //CameraPreview.show();
     this.showOverlay();
-    
+
 
 
   }

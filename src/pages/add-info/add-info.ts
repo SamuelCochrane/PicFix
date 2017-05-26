@@ -1,6 +1,8 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
+
+import { CameraConfirmPage } from '../camera-confirm/camera-confirm';
 import { GlobalVars } from '../../providers/global-vars';
 import { Geolocation } from '@ionic-native/geolocation';
 import { AlertController } from 'ionic-angular';
@@ -197,4 +199,14 @@ addInfoWindow(marker, content){
     });
     alert.present();
   }
+
+
+  confirmPic() {
+    this.navCtrl.push(CameraConfirmPage);
+
+  }
+
+
+
+
 }

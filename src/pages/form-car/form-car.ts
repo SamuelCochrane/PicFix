@@ -5,6 +5,8 @@ import { GlobalVars } from '../../providers/global-vars';
 import { OlprData } from '../../providers/olpr-data';
 import { AlertController } from 'ionic-angular';
 
+import { CameraConfirmPage } from '../camera-confirm/camera-confirm';
+
 
 /*
   Generated class for the Form page.
@@ -122,6 +124,9 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public g
   }
 
 
+confirmPic() {
+    this.navCtrl.push(CameraConfirmPage);
 
+  }
 
   }

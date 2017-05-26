@@ -3,6 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { GlobalVars } from '../../providers/global-vars';
 import { FormCarPage } from '../form-car/form-car';
+import { AddInfoPage } from '../add-info/add-info';
+import { CameraPage } from '../camera/camera';
 
 
 
@@ -30,7 +32,7 @@ export class CameraConfirmPage {
 
 
 	  var report = this.gVars.getCurrentReport();
-    previewImage.src = report.images;
+    previewImage.src = report.image;
 
 
     console.log(" end of camera confirm loading");
@@ -43,10 +45,17 @@ export class CameraConfirmPage {
   }
 
   confirmImage() {
-  	this.navCtrl.push(FormCarPage);
+    this.navCtrl.pop();
+   /* var report = this.gVars.getCurrentReport();
+
+     if(report.reportType == 'pothole') { this.navCtrl.push(AddInfoPage); }
+     else if(report.reportType == 'car') { this.navCtrl.push(FormCarPage); }
+*/
   }
 
   retryImage() {
+    //pop all the way back to Camera
+    this.navCtrl.remove(this.navCtrl.getActive().index);
   	this.navCtrl.pop();
   }
 

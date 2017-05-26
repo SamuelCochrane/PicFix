@@ -1,6 +1,8 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
+
+import { CameraConfirmPage } from '../camera-confirm/camera-confirm';
 import { GlobalVars } from '../../providers/global-vars';
 import { Geolocation } from '@ionic-native/geolocation';
 import { AlertController } from 'ionic-angular';
@@ -148,11 +150,11 @@ submitReport() {
           let storage_url = 'images/' + (new Date()).getTime() + '.jpeg';
 
           // If we want to go back to base 64, just delete this block :)
-          // finalReport.image = storage_url;
-          // let storage = firebase.storage().ref();
-          // storage.child(storage_url).putString(report.image, 'data_url').then(function(snapshot) {
-          //   console.log('Uploaded a base64 string!');
-          // });
+          finalReport.image = storage_url;
+          let storage = firebase.storage().ref();
+          storage.child(storage_url).putString(report.image, 'data_url').then(function(snapshot) {
+            console.log('Uploaded a base64 string!');
+          });
           //
 
 
@@ -218,4 +220,14 @@ addInfoWindow(marker, content){
     });
     alert.present();
   }
+
+
+  confirmPic() {
+    this.navCtrl.push(CameraConfirmPage);
+
+  }
+
+
+
+
 }

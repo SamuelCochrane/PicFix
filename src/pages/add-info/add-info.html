@@ -12,7 +12,7 @@
 
     <div #map id="map"></div>
 
-    <ion-label id="label">Additional Information</ion-label>
+    <ion-label id="label">Additional Information (Optional)</ion-label>
     <ion-item text-wrap id="box">
       <ion-textarea type="text" [(ngModel)] = "addInfoComments"></ion-textarea>
     </ion-item>
@@ -23,7 +23,6 @@
 		    	<ion-label>Send Anonymously</ion-label>
 		    	<ion-checkbox name = "anonymous" [(ngModel)]="anonymous"></ion-checkbox>
 		  </ion-item>
-<br>
 <br>
 
 	<button ion-button lid="submitButton" (click) = submitReport() id="submit">

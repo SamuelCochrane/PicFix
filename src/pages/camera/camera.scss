@@ -29,8 +29,6 @@ page-camera {
 	min-height: 75px;
 	height: 150px;
 	outline: 1px;
-	outline-style: solid;
-	outline-color: white;
 }
 
 #overlayImg {
@@ -39,7 +37,7 @@ page-camera {
 	outline-color: blue;
 	z-index: -50;
 	outline:0.3;
-	opacity: 0.2;	
+	opacity: 0.2;
 }
 
 

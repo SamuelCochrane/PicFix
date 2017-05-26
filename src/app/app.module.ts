@@ -27,7 +27,6 @@ import { AngularFireModule } from 'angularfire2';
 import { Geolocation } from '@ionic-native/geolocation';
 
 
-import {Permissions} from 'ionic-native';
 
 
 export const firebaseConfig = {

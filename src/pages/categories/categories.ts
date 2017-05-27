@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { CameraPage } from '../camera/camera';
 import { DescriptionsPage } from '../descriptions/descriptions';
 import { GlobalVars } from '../../providers/global-vars'
+import { MyReportsPagePage } from '../my-reports/my-reports';
 
 
 @Component({

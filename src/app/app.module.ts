@@ -9,7 +9,6 @@ import { FormCarPage } from '../pages/form-car/form-car';
 import { AddInfoPage} from '../pages/add-info/add-info';
 import { CategoriesPage } from '../pages/categories/categories';
 import { ProfilePage } from '../pages/profile/profile';
-
 import { CameraPage } from '../pages/camera/camera';
 import { CameraConfirmPage } from '../pages/camera-confirm/camera-confirm';
 
@@ -21,10 +20,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { GlobalVars } from '../providers/global-vars';
 import { OlprData } from '../providers/olpr-data';
 
+import { MyReportsPagePage } from '../pages/my-reports/my-reports';
+
+
 // import angular
 import { AngularFireModule } from 'angularfire2';
 
 import { Geolocation } from '@ionic-native/geolocation';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+
 
 
 
@@ -50,14 +54,16 @@ export const firebaseConfig = {
     AddInfoPage,
     CategoriesPage,
     ProfilePage,
-    DescriptionsPage
+    DescriptionsPage,
+    MyReportsPagePage
   ],
   imports: [
     IonicModule.forRoot(MyApp, {
       scrollAssist: false,
       autoFocusAssist: false
     }),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    Ng2OrderModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -71,7 +77,8 @@ export const firebaseConfig = {
     AddInfoPage,
     CategoriesPage,
     ProfilePage,
-    DescriptionsPage
+    DescriptionsPage,
+    MyReportsPagePage
   ],
   providers: [
     StatusBar,

@@ -3,6 +3,7 @@ import { NavController, NavParams, AlertController, ActionSheetController } from
 import { CategoriesPage } from '../categories/categories';
 import { ProfilePage } from '../profile/profile';
 import { ToastController } from 'ionic-angular';
+import { MyReportsPagePage } from '../my-reports/my-reports';
 
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
 
@@ -30,6 +31,10 @@ export class HomePage {
 
 goToCategoriesPage() {
 	this.navCtrl.push(CategoriesPage, {});
+}
+
+goToReportsPage() {
+	this.navCtrl.push(MyReportsPagePage, {});
 }
 
 goToProfilePage() {

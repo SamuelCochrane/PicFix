@@ -31,21 +31,22 @@ export class AddInfoPage {
  	pushPage;
   public addInfoComments: " ";
 
-  finalReport: FirebaseListObservable<any>;
+  public af: any;
+  public finalReport: FirebaseListObservable<any>;
 
 
   @ViewChild('map') mapElement: ElementRef;
   map: any;
-  private af:any;
 
 
-  	constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars, public geolocation: Geolocation, public alertCtrl: AlertController, af: AngularFire) {
-  		this.pushPage = AddInfoPage;
-      this.finalReport = af.database.list('/finalReport');
-      this.af = af;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars, public geolocation: Geolocation, public alertCtrl: AlertController, af: AngularFire) {
+    this.pushPage = AddInfoPage;
+    this.finalReport = af.database.list('/finalReport');
+
+    this.af = af;
   }
 
-  ionViewDidLoad(){
+  ionViewDidLoad() {
     var previewImage = document.getElementById('formPicture2') as HTMLImageElement;
 
     var report = this.gVars.getCurrentReport();
@@ -56,7 +57,7 @@ export class AddInfoPage {
   }
 
   public geoloc;
-  loadMap(){
+  loadMap() {
     this.geolocation.getCurrentPosition().then((position) => {
 
       this.geoloc = position.coords;
@@ -68,9 +69,9 @@ export class AddInfoPage {
         center: latLng,
         zoom: 15,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        draggable : false,
-        navigationControl : false,
-        scrollwheel : false
+        draggable: false,
+        navigationControl: false,
+        scrollwheel: false
       }
       //alert('yeeee');
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
@@ -84,133 +85,123 @@ export class AddInfoPage {
 
 
 
-submitReport() {
+  submitReport() {
+    var report = this.gVars.getCurrentReport();
 
-  //get current report
-  //~~~~report.anonymous = true, report.geolocation {Lat : X, Long : X}, report.additionalComments = X
-  //update report in memory
-
-  //send data to firebase - data = this.gVars.getCurrentReport()
-
-  // this.showSubmitAlert();
-  var report = this.gVars.getCurrentReport();
-
-  var geolocation
-  if(this.geoloc != null) {
-    geolocation = {
-      Lat : this.geoloc.latitude,
-      Lng : this.geoloc.longitude
+    var geolocation
+    if (this.geoloc != null) {
+      geolocation = {
+        Lat: this.geoloc.latitude,
+        Lng: this.geoloc.longitude
+      }
+    } else {
+      geolocation = {
+        Lat: "null",
+        Lng: "null"
+      }
     }
-  } else {
-    geolocation = {
-      Lat : "null",
-      Lng : "null"
+
+    report.additionalInfo = {
+      geolocation,
+      additionalComments: this.addInfoComments + "",
+      anonymous: false //TODO: make this do the thing
     }
-  }
 
-  report.additionalInfo = {
-    geolocation,
-    additionalComments : this.addInfoComments + "",
-    anonymous : false //TODO: make this do the thing
-  }
-
-  this.gVars.updateCurrentReport(report);
+    this.gVars.updateCurrentReport(report);
 
 
 
 
-  var  finalReport;
+    var finalReport;
 
-  if (report.reportType == "car") {
-    finalReport = {
-            additionalInfo : report.additionalInfo,
-            carInfo : report.carInfo,
-            image : report.image,
-            reportType : report.reportType
+    if (report.reportType == "car") {
+      finalReport = {
+        additionalInfo: report.additionalInfo,
+        carInfo: report.carInfo,
+        image: report.image,
+        reportType: report.reportType,
+        createdTime: firebase.database.ServerValue.TIMESTAMP
+      }
+    } else {
+      finalReport = {
+        additionalInfo: report.additionalInfo,
+        image: report.image,
+        reportType: report.reportType,
+        createdTime: firebase.database.ServerValue.TIMESTAMP
+      }
     }
-  } else {
-    finalReport = {
-            additionalInfo : report.additionalInfo,
-            image : report.image,
-            reportType : report.reportType
-    }
-  }
+
+    let storage_url = 'images/' + (new Date()).getTime() + '.jpeg';
+
+    let reportList = this.finalReport;
 
 
+    let storage = firebase.storage().ref();
+    storage.child(storage_url).putString(report.image, 'data_url').then(function(snapshot) {
+      console.log('Uploaded a base64 string!');
 
 
-  let submitAlert = this.alertCtrl.create({
-
-    title: 'Thank You!',
-    message: "Your report has been sent to the city!",
-    buttons: [
-      {
-        text: 'OK',
-        handler: data => {
-          let storage_url = 'images/' + (new Date()).getTime() + '.jpeg';
-
-          // If we want to go back to base 64, just delete this block :)
-          finalReport.image = storage_url;
-          let storage = firebase.storage().ref();
-          storage.child(storage_url).putString(report.image, 'data_url').then(function(snapshot) {
-            console.log('Uploaded a base64 string!');
-          });
-          //
+      storage.child(storage_url).getDownloadURL().then(responseURL => {
+        finalReport.image = responseURL;
+        console.log("FinalReport's image");
+        console.log(finalReport.image);
+        console.log("Response URL");
+        console.log(responseURL);
 
 
-
-          this.finalReport.push(finalReport);
-
-
-            // if (error) {
-            //   console.log("error: " + error)
-            // } else {
-            //   console.log("report sent to firebase")
-            // }
+        reportList.push(finalReport).then(function(error) {
+          if (error) {
+            console.log("error: " + error)
+          } else {
+            console.log("report sent to firebase")
           }
+        });
+      });
+    })
+
+    let submitAlert = this.alertCtrl.create({
+
+      title: 'Thank You!',
+      message: "Your report has been sent to the city!",
+      buttons: [
+        {
+          text: 'OK'
         }
       ]
-  });
-  submitAlert.present();
+    });
+    submitAlert.present();
 
-
-
-	this.navCtrl.popToRoot(/*{
+    this.navCtrl.popToRoot(/*{
     param1: 'submittedReport'
 
   }*/);
+  }
+  //  firebase auth stuff: if request.auth != null
+  addMarker() {
 
+    let marker = new google.maps.Marker({
+      map: this.map,
+      animation: google.maps.Animation.DROP,
+      position: this.map.getCenter()
+    });
 
+    let content = "<h4>Information!</h4>";
 
+    this.addInfoWindow(marker, content);
 
-}
-//  firebase auth stuff: if request.auth != null
-addMarker(){
+  }
 
-  let marker = new google.maps.Marker({
-    map: this.map,
-    animation: google.maps.Animation.DROP,
-    position: this.map.getCenter()
-  });
+  addInfoWindow(marker, content) {
 
-  let content = "<h4>Information!</h4>";
+    let infoWindow = new google.maps.InfoWindow({
+      content: content
+    });
 
-  this.addInfoWindow(marker, content);
+    google.maps.event.addListener(marker, 'click', () => {
+      infoWindow.open(this.map, marker);
+    });
 
-}
-
-addInfoWindow(marker, content){
-
-  let infoWindow = new google.maps.InfoWindow({
-    content: content
-  });
-
-  google.maps.event.addListener(marker, 'click', () => {
-    infoWindow.open(this.map, marker);
-  });
-
-}
-
+  }
 
   showSubmitAlert() {
     let alert = this.alertCtrl.create({
@@ -221,13 +212,8 @@ addInfoWindow(marker, content){
     alert.present();
   }
 
-
   confirmPic() {
     this.navCtrl.push(CameraConfirmPage);
 
   }
-
-
-
-
 }

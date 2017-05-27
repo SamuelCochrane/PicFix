@@ -103,8 +103,8 @@ export class AddInfoPage {
 
     report.additionalInfo = {
       geolocation,
-      additionalComments: this.addInfoComments + "",
-      anonymous: false //TODO: make this do the thing
+      additionalComments: this.addInfoComments + ""
+      // anonymous: null
     }
 
     this.gVars.updateCurrentReport(report);
@@ -216,4 +216,6 @@ export class AddInfoPage {
     this.navCtrl.push(CameraConfirmPage);
 
   }
+
+
 }

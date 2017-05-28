@@ -101,6 +101,10 @@ export class AddInfoPage {
       }
     }
 
+    if(this.addInfoComments == null) {
+      this.addInfoComments = report.reportType;
+    }
+
     report.additionalInfo = {
       geolocation,
       additionalComments: this.addInfoComments + ""

@@ -52,8 +52,14 @@ page-camera {
 }
 
 .toast-container {
-	background: red;
+	// background: red;
+	background-color: color($colors, midBlue);
+
 	z-index: 100;
+}
+
+.no-scroll .scroll-content {
+	 overflow: hidden;
 }
 
 

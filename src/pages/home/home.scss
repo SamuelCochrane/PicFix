@@ -1,6 +1,6 @@
 page-home {
 
-  #categoriesButton, #viewReportsButton { 
+  #categoriesButton {
     padding-top: 50px;
     padding-bottom: 50px;
 
@@ -14,7 +14,7 @@ page-home {
   }
 
   img {
-    padding-top: 15px;
+    padding-top: 50px;
   }
 
 
@@ -34,6 +34,21 @@ page-home {
       line-height: 20px;
 
   }
+
+  #viewReportsButton {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    background-color: color($colors, midBlue);
+    margin-top: 10px;
+    margin-right: 10px;
+
+
+  }
+
+  .no-scroll .scroll-content {
+     overflow: hidden;
+}
 
 
 

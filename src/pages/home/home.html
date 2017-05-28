@@ -1,6 +1,6 @@
 <ion-header></ion-header>
 
-<ion-content padding padding id="content">
+<ion-content class="no-scroll" padding padding id="content">
   <!-- <h2>Welcome to PicFix!</h2>
   <p>
     This is where we will have the 'Create Report button', that sends us to the camera direct or has a list of report types if we can manage to make more than 1.
@@ -41,13 +41,10 @@
 
 </button>
 
-<button ion-button large id="viewReportsButton" (click) = goToReportsPage() >
-  <div>
+<button ion-button icon-left id="viewReportsButton" (click) = goToReportsPage() >
     <ion-icon name="eye"></ion-icon>
     <br>
     <label>View Reports</label>
-  </div>
-
 </button>
 
 </div>

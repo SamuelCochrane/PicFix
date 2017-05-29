@@ -7,6 +7,8 @@ import { AlertController } from 'ionic-angular';
 
 import { CameraConfirmPage } from '../camera-confirm/camera-confirm';
 
+import { LoadingController } from 'ionic-angular';
+
 
 /*
   Generated class for the Form page.
@@ -29,7 +31,7 @@ export class FormCarPage {
   timeOpts: { title: string, subTitle: string };
 
 
-constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars, public oData :  OlprData, public alertCtrl: AlertController) {
+constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars, public oData :  OlprData, public alertCtrl: AlertController, public loading: LoadingController) {
   this.timeOpts = {
       title: 'Length of time parked',
       subTitle: 'Select time'
@@ -42,11 +44,16 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public g
     var previewImage = document.getElementById('formPicture') as HTMLImageElement;
 
 
+    let loader = this.loading.create({
+      content: 'Scanning image...',
+    });
+    loader.present();
 
 	  var report = this.gVars.getCurrentReport();
     previewImage.src = report.image;
     var _this = this;
     this.oData.getData(report.image).then(function(response) {
+      loader.dismiss();
       var dataObj = JSON.parse(response.toString());
       if(dataObj.results[0] != null && dataObj.results[0].plate != null) {
             _this.showOlprAlert(dataObj.results[0].plate);

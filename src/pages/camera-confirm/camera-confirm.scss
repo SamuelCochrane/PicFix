@@ -5,39 +5,82 @@ page-camera-confirm {
 }
 
 .button {
-	background-color: #555555;
+	// background-color: #555555;
+	// border: none;
+	// border-radius: 25%;
+	//
+	// display: inline-block;
+	// position: relative;
+	// margin: 15px;
+	//
+	// width: 75px;
+	// height: 75px;
+	// font-size: 40px;
+	vertical-align: center;
+	background-color: color($colors, midBlue);
 	border: none;
-	border-radius: 25%;
+	border-radius: 15%;
+
+	top: 10%;
 
 	display: inline-block;
 	position: relative;
-	margin: 15px;
 
-	width: 75px;
-	height: 75px;
-	font-size: 40px;
+	width: 25vw;
+	height: 25vw;
+	font-size: 35px;
 }
 
 #buttonContainer {
-	position: absolute;
+	// position: absolute;
+	//
+	// text-align: center;
+	// bottom: 0;
+	// width: 100%;
+	// min-height: 75px;
+	// height: 150px;
+	// outline: 1px;
+	// outline-style: solid;
+	// outline-color: white;
 
-	text-align: center;
-	bottom: 0;
-	width: 100%;
-	min-height: 75px;
-	height: 150px;
-	outline: 1px;
-	outline-style: solid;
-	outline-color: white;
-}
+		position: absolute;
+		background-color: color($colors, darkBlue);
+		text-align: center;
+		bottom: 0;
+		width: 100%;
+		min-height: 75px;
+		height: 150px;
+		outline: 1px;
+	}
+
 
 
 #confirmPicture  {
 	position: absolute;
 	left:0;
 	right:0;
-	bottom: 165px;
+	bottom: 166px;
+}
+
+.no-scroll .scroll-content {
+	 overflow: hidden;
+}
+
+#retake {
+	position: absolute;
+	left: 115px;
+	color: white;
+	font-size: 120%;
+}
+
+#confirm {
+	position: absolute;
+	right: 110px;
+	color: white;
+	font-size: 120%;
 
 }
+
+
 
 }

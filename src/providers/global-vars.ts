@@ -19,9 +19,9 @@ export class GlobalVars {
 
   public createCurrentReport() {
   	var report = {
-      
+
     };
-    
+
   	localStorage.setItem('currentReport', JSON.stringify(report));
   }
 
@@ -66,7 +66,7 @@ export class GlobalVars {
 public presentToast(text:string) {
     let toast = this.toastCtrl.create({
       message: text,
-      duration: 3000,
+      duration: 4000,
       position: 'top'
 
     });

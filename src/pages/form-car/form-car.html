@@ -4,7 +4,7 @@
   </ion-navbar>-->
 </ion-header>
 
-<ion-content padding id = "content">
+<ion-content class="no-scroll" padding id = "content">
   <img id="formPicture" width="300" (click) = confirmPic()/>
   <ion-list>
 
@@ -54,8 +54,9 @@
   <input type="text" name="sample2"><br>
 </form> -->
 
-  <button ion-button id="nextButton" (click) = goToAddInfo() >
+  <button ion-button icon-right id="nextButton" (click) = goToAddInfo() >
       Next
+      <ion-icon name="md-arrow-round-forward"></ion-icon>
   </button>
 
 </ion-content>

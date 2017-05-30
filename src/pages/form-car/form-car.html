@@ -4,9 +4,18 @@
   </ion-navbar>-->
 </ion-header>
 
-<ion-content class="no-scroll" padding id = "content">
   <img id="formPicture" width="300" (click) = confirmPic()/>
-  <ion-list>
+
+   <ion-item id = "item">
+        <ion-label id="label" >Length of time parked</ion-label>
+        <ion-select id="input" [(ngModel)]="time" [selectOptions]="timeOpts" required>
+          <ion-option>Over 3 days</ion-option>
+          <ion-option>Over 1 week</ion-option>
+          <ion-option>Over 1 month</ion-option>
+          <ion-option>Over 3 months</ion-option>
+        </ion-select>
+      </ion-item>
+
 
     <ion-item id = "item">
       <ion-label id="label" floating>License Number</ion-label>
@@ -31,16 +40,7 @@
     <br>
     <br>
 
-    <ion-item id = "item">
-        <ion-label id="label" >Length of time parked</ion-label>
-        <ion-select id="input" [(ngModel)]="time" [selectOptions]="timeOpts" required>
-          <ion-option>Over 3 days</ion-option>
-          <ion-option>Over 1 week</ion-option>
-          <ion-option>Over 1 month</ion-option>
-          <ion-option>Over 3 months</ion-option>
-        </ion-select>
-      </ion-item>
-
+   
   </ion-list>
 
 
@@ -58,5 +58,8 @@
       Next
       <ion-icon name="md-arrow-round-forward"></ion-icon>
   </button>
+
+
+  <div height = 400px></div>
 
 </ion-content>

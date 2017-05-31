@@ -8,7 +8,6 @@ import { ToastController } from 'ionic-angular';
 
 
 import { GlobalVars } from '../../providers/global-vars';
-import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 
 
 declare var CameraPreview: any;
@@ -21,7 +20,7 @@ declare var CameraPreview: any;
 export class CameraPage {
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars, public toastCtrl: ToastController, private nativePageTransitions: NativePageTransitions) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars, public toastCtrl: ToastController) {}
 
   /*Called first time page is opened*/
   ionViewDidLoad() {
@@ -43,20 +42,6 @@ export class CameraPage {
  /*Called every time view is closed*/
   ionViewWillLeave() {
   	CameraPreview.hide();
-
-    let options: NativeTransitionOptions = {
-       direction: 'up',
-       duration: 500,
-       slowdownfactor: 3,
-       slidePixels: 20,
-       iosdelay: 100,
-       androiddelay: 150,
-       fixedPixelsTop: 0,
-       fixedPixelsBottom: 60
-      };
-
-    this.nativePageTransitions.slide(options);
-
      //var overlay  = document.getElementById('overlayImg') as HTMLImageElement;
      //overlay.src =  "";
   }

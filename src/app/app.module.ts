@@ -28,7 +28,6 @@ import { AngularFireModule } from 'angularfire2';
 
 import { Geolocation } from '@ionic-native/geolocation';
 import { Ng2OrderModule } from 'ng2-order-pipe';
-import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 
 
 
@@ -87,7 +86,6 @@ export const firebaseConfig = {
     SplashScreen,
     GlobalVars,
     Geolocation,
-    NativePageTransitions,
     OlprData,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

@@ -6,7 +6,6 @@ import { ToastController } from 'ionic-angular';
 import { MyReportsPagePage } from '../my-reports/my-reports';
 
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
-import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 
 
 
@@ -22,12 +21,11 @@ declare var cordova: any;
 export class HomePage {
   parameter1;
   // songs: FirebaseListObservable<any>;
-  public options;
 
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public alertCtrl: AlertController, public actionSheetCtrl: ActionSheetController, af: AngularFire, private nativePageTransitions: NativePageTransitions) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public alertCtrl: AlertController, public actionSheetCtrl: ActionSheetController, af: AngularFire) {
     this.parameter1 = this.navParams.get('param1');
 
     // this.songs = af.database.list('/songs');

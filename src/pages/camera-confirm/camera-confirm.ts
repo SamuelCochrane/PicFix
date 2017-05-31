@@ -19,10 +19,11 @@ import { CameraPage } from '../camera/camera';
   templateUrl: 'camera-confirm.html'
 })
 export class CameraConfirmPage {
-  //public picture:any;
+  public passedFrom;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public gVars: GlobalVars) {
+    this.passedFrom = navParams.get("passedFrom");
   }
 
   ionViewDidEnter() {
@@ -56,10 +57,9 @@ export class CameraConfirmPage {
   retryImage() {
     //pop all the way back to Camera
 
-    var report = this.gVars.getCurrentReport();
     
     this.navCtrl.remove(this.navCtrl.getActive().index);
-    if(report.reportType == "car") { this.navCtrl.remove(this.navCtrl.getActive().index - 1); }
+    if(this.passedFrom == "carAddInfo") { this.navCtrl.remove(this.navCtrl.getActive().index - 1); }
   	this.navCtrl.pop();
   }
 

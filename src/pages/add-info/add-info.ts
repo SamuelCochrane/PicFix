@@ -217,9 +217,16 @@ export class AddInfoPage {
   }
 
   confirmPic() {
-    this.navCtrl.push(CameraConfirmPage);
-
+    var report = this.gVars.getCurrentReport();
+    if (report.reportType == "car") {
+      this.navCtrl.push(CameraConfirmPage, {passedFrom : "carAddInfo"});
+    }
+    else {
+      this.navCtrl.push(CameraConfirmPage);
+    }
+    
   }
+
 
 
 }

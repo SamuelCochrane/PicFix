@@ -55,7 +55,11 @@ export class CameraConfirmPage {
 
   retryImage() {
     //pop all the way back to Camera
+
+    var report = this.gVars.getCurrentReport();
+    
     this.navCtrl.remove(this.navCtrl.getActive().index);
+    if(report.reportType == "car") { this.navCtrl.remove(this.navCtrl.getActive().index - 1); }
   	this.navCtrl.pop();
   }
 

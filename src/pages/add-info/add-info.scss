@@ -7,7 +7,7 @@
 
     #map {
       width: 50%;
-      height: 31.5%;
+      height: 31.5vh;
     }
 
     textarea {
@@ -53,6 +53,7 @@
     position: absolute;
     right: 20px;
     width: 40vw;
+    height: 31.5vh;
   }
 
   .no-scroll .scroll-content {

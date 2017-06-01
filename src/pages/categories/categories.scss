@@ -1,10 +1,9 @@
 page-categories {
-  
+
   h2 {
   	color: white;
     padding-top: 25px; 
   }
-
 
   .button {
   	background-color: color($colors, midBlue);
@@ -14,8 +13,6 @@ page-categories {
   	font-size: 15px;
     display: inline-block;
   }
-
-  
 
   img {
     width: 70%;
@@ -34,6 +31,6 @@ page-categories {
     margin-top: 0px;
     background-color: color($colors, darkBlue);
     text-align: center;
-}
+  }
 
 }

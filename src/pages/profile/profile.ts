@@ -5,10 +5,8 @@ import { GlobalVars } from '../../providers/global-vars';
 
 
 /*
-  Generated class for the Profile page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
+  Simple page containing editable fields for user information.
+  On exit, the data in the fields is stored in memory.
 */
 @Component({
   selector: 'page-profile',

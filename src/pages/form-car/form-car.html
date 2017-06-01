@@ -1,69 +1,49 @@
-<ion-header>
-  <!--<ion-navbar>
-    <ion-title>Form</ion-title>
-  </ion-navbar>-->
-</ion-header>
+<ion-header></ion-header>
 <ion-content class="scroll" padding id="content">
 
   <img id="formPicture" width="300" (click) = confirmPic()/>
   <ion-list class="scroll" id="list">
 
    <ion-item id = "item">
-        <ion-label id="label" >Length of time parked</ion-label>
-        <ion-select id="input" [(ngModel)]="time" [selectOptions]="timeOpts" required>
-          <ion-option>Over 3 days</ion-option>
-          <ion-option>Over 1 week</ion-option>
-          <ion-option>Over 1 month</ion-option>
-          <ion-option>Over 3 months</ion-option>
-        </ion-select>
-      </ion-item>
+    <ion-label id="label" >Length of time parked</ion-label>
+    <ion-select id="input" [(ngModel)]="time" [selectOptions]="timeOpts" required>
+      <ion-option>Over 3 days</ion-option>
+      <ion-option>Over 1 week</ion-option>
+      <ion-option>Over 1 month</ion-option>
+      <ion-option>Over 3 months</ion-option>
+    </ion-select>
+  </ion-item>
 
 
-    <ion-item id = "item">
-      <ion-label id="label" floating>License Number</ion-label>
-      <ion-input id="input" type="text" [(ngModel)]="valueLicensePlate" required></ion-input>
-    </ion-item>
+  <ion-item id = "item">
+    <ion-label id="label" floating>License Number</ion-label>
+    <ion-input id="input" type="text" [(ngModel)]="valueLicensePlate" required></ion-input>
+  </ion-item>
 
-    <ion-item id = "item">
-      <ion-label id="label" floating>State</ion-label>
-      <ion-input id="input" type="text" [(ngModel)]="valueLicenseState" required></ion-input>
-    </ion-item>
+  <ion-item id = "item">
+    <ion-label id="label" floating>State</ion-label>
+    <ion-input id="input" type="text" [(ngModel)]="valueLicenseState" required></ion-input>
+  </ion-item>
 
-    <ion-item id = "item">
-      <ion-label id="label" floating>Vehicle Manufacturer (Optional) </ion-label>
-      <ion-input id="input" type="text" [(ngModel)]="valueVehicleMake"></ion-input>
-    </ion-item>
+  <ion-item id = "item">
+    <ion-label id="label" floating>Vehicle Manufacturer (Optional) </ion-label>
+    <ion-input id="input" type="text" [(ngModel)]="valueVehicleMake"></ion-input>
+  </ion-item>
 
-    <ion-item id = "item">
-      <ion-label id="label" floating>Vehicle Color (Optional) </ion-label>
-      <ion-input id="input" type="text" [(ngModel)]="valueVehicleColor"></ion-input>
-    </ion-item>
+  <ion-item id = "item">
+    <ion-label id="label" floating>Vehicle Color (Optional) </ion-label>
+    <ion-input id="input" type="text" [(ngModel)]="valueVehicleColor"></ion-input>
+  </ion-item>
 
-    <br>
-    <br>
+  <br>
+  <br>
 
-  </ion-list>
-
-
+</ion-list>
 
 
-  <!-- <form>
-    <br>
-    <button ion-button icon-only>
-      <ion-icon name="locate"></ion-icon>
-    </button>GPS:<br>
-  <input type="text" name="sample1"><br>
-  Description:<br>
-  <input type="text" name="sample2"><br>
-</form> -->
-
-  <button ion-button icon-right id="nextButton" (click) = goToAddInfo() >
-      Next
-      <ion-icon name="md-arrow-round-forward"></ion-icon>
-  </button>
-
-
-
-
+<button ion-button icon-right id="nextButton" (click) = goToAddInfo() >
+  Next
+  <ion-icon name="md-arrow-round-forward"></ion-icon>
+</button>
 
 </ion-content>

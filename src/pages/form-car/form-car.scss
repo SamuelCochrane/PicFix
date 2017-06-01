@@ -4,28 +4,28 @@ page-form-car {
     width: 40vw;
   }
 
- #content {
+  #content {
     margin-top: 0px;
     background-color: color($colors, darkBlue);
     text-align: center;
- }
+  }
 
- #item {
- 	background-color: transparent;
- 	color: white;
+  #item {
+    background-color: transparent;
+    color: white;
 
 
- }
- #label {
- 	color: white;
+  }
+  #label {
+    color: white;
 
- }
- #input {
+  }
+  #input {
 
- }
+  }
 
- #nextButton {
- 	 background-color: color($colors, midBlue);
+  #nextButton {
+   background-color: color($colors, midBlue);
    position: center;
    bottom: 15px;
    padding-left: 25px;
@@ -36,11 +36,6 @@ page-form-car {
 
  .no-scroll .scroll-content {
     overflow: hidden;
-}
-
-
-
-
-
+  }
 
 }

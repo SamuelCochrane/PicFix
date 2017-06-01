@@ -6,10 +6,10 @@ import * as firebase from 'firebase';
 
 
 /*
-  Generated class for the MyReportsPage page.
+  Page that shows a list of all reports submitted to the server
+  Each entry will have the picture, as well as what text was submitted in the 'additional info' section
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
+  This page is feature-lacking, and is closer to 'proof of concept' than 'full feature'
 */
 @Component({
   selector: 'page-my-reports',

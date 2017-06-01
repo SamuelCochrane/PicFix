@@ -1,32 +1,23 @@
-<!--
-  Generated template for the AddInfo page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header></ion-header>
 
-
 <ion-content class="no-scroll" padding id="content">
-  <img id="formPicture2" width="300" (click) = confirmPic()/>
 
-    <div #map id="map"></div>
+  <img id="formPicture2" width="300" (click) = confirmPic()/> <!--Report Picture-->
 
-    <ion-label id="label">Additional Information (Optional)</ion-label>
-    <ion-item text-wrap id="box">
-      <ion-textarea type="text" [(ngModel)] = "addInfoComments"></ion-textarea>
-    </ion-item>
-<br>
+  <div #map id="map"></div> <!--Google Map showing current location-->
 
+  <ion-label id="label">Additional Information (Optional)</ion-label>
+    
+  <ion-item text-wrap id="box">
+    <ion-textarea type="text" [(ngModel)] = "addInfoComments"></ion-textarea>
+  </ion-item>
 
-		   <!-- <ion-item id="box">
-		    	<ion-label>Send Anonymously</ion-label>
-		    	<ion-checkbox name = "anonymous" [(ngModel)]="anonymous"></ion-checkbox>
-		  </ion-item> -->
-<br>
+  <br>
+  <br>
 
 	<button ion-button icon-left lid="submitButton" (click) = submitReport() id="submit">
     <ion-icon name="md-checkmark"></ion-icon>
-    <label> Submit </label>
+    <label>Submit</label>
 	</button>
+
 </ion-content>

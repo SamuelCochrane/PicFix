@@ -1,72 +1,53 @@
 page-camera {
 
-.button {
-	vertical-align: center;
-	background-color: color($colors, midBlue);
-	border: none;
-	border-radius: 15%;
+	.button {
+		vertical-align: center;
+		background-color: color($colors, midBlue);
+		border: none;
+		border-radius: 15%;
 
-	top: 10%;
+		top: 10%;
 
-	display: inline-block;
-	position: relative;
+		display: inline-block;
+		position: relative;
 
-	width: 25vw;
-	height: 25vw;
-	font-size: 35px;
-}
-#buttonTakePhoto{
-	width: 30vw;
-	height: 30vw;
-  }
+		width: 25vw;
+		height: 25vw;
+		font-size: 35px;
+	}
+	#buttonTakePhoto{
+		width: 30vw;
+		height: 30vw;
+	}
 
-#buttonContainer {
-	position: absolute;
-	background-color: color($colors, darkBlue);
-	text-align: center;
-	bottom: 0;
-	width: 100%;
-	min-height: 75px;
-	height: 150px;
-	outline: 1px;
-}
+	#buttonContainer {
+		position: absolute;
+		background-color: color($colors, darkBlue);
+		text-align: center;
+		bottom: 0;
+		width: 100%;
+		min-height: 75px;
+		height: 150px;
+		outline: 1px;
+	}
 
-#overlayImg {
-	outline-style: solid;
-	outline: 5px;
-	outline-color: blue;
-	z-index: -50;
-	outline:0.3;
-	opacity: 0.2;
-}
-
-
-
-// html, body, ion-app, ion-content, ion-page, .nav-decor, p {
-//   background-color: transparent !important;
-//   font-family: 'Dosis', sans-serif;
-// }
+	#overlayImg {
+		outline-style: solid;
+		outline: 5px;
+		outline-color: blue;
+		z-index: -50;
+		outline:0.3;
+		opacity: 0.2;
+	}
 
 
 
 }
 
 .toast-container {
-	// background: red;
 	background-color: color($colors, midBlue);
-
 	z-index: 100;
 }
-
 .no-scroll .scroll-content {
-	 overflow: hidden;
+	overflow: hidden;
 }
-
-
-
-
-
-// html, body, .ion-app, .ion-content, #ion-content, .ion-app.md, ion-app.md, ion-view, ion-pane {
-//   background-color: transparent !important;
-//
-// }

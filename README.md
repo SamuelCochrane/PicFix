@@ -1,42 +1,60 @@
-Early camera functionality has been added
+## Overview
 
-camera view in html element (bottom right),
-in-app camera buttons (top left),
-html img with source set to most recent picture (middle left)
+PicFix is a picture-based reporting app that allows people to report city issues (e.g. potholes, abandoned vehicles, graffiti) by taking pictures.
 
-![screenshot of camera functionality](imgs/cameraTest1.png)
+PicFix makes the reporting process faster and easier by collecting the information in smart ways since pictures already contain the majority of the information a city needs in order to respond to issues.
 
+Technologies such as image recognition and GPS location services scrape the necessary information from the photo and are used to autofill the form for the user. Instead of having to manually enter information in every form field, users only have to look over the report and submit.
 
----------
+[![PicFix video](https://img.youtube.com/vi/ZWE0SiLXhxw/0.jpg)](https://www.youtube.com/watch?v=ZWE0SiLXhxw&feature=youtu.be)
 
-## Synopsis
+(GIF here)
 
-At the top of the file there should be a short introduction and/ or overview that explains **what** the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
+## Leveraged Frameworks
 
-## Code Example
+PicFix is built with the [Ionic Framework](https://ionicframework.com/) v2. Ionic is great for building applications across different platforms (e.g. iOS, Android) by using a code base built on Angular2 and TypeScript. Ionic also has a strong, active community which is useful for debugging issues.
 
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+Because mobile webforms don't have the desired native camera accessibility (the ability to integrate the camera view directly into the HTML), Ionic was also chosen for its ability to access the native camera functionality.
 
-## Motivation
+[Firebase](https://firebase.google.com/) was used as a local, accessible database to demonstrate that the information in the reports could be successfully sent to another location.
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
+[Open Automatic License Plate Recognition (oalpr)](http://www.openalpr.com/cloud-api.html) was the image recognition API used to process the photos in the "Illegally Parked Car" report.
 
 ## Installation
 
-Provide code examples and explanations of how to get the project.
+Install Node.js [here](https://nodejs.org/en/)
+
+Run `npm install` to ensure all node packages are installed.
+
+Depending on which platform you will be building for (e.g. website, iOS, Android) the installation will be slightly different in terms of what you need for development. Go [here](https://cordova.apache.org/docs/en/7.x/guide/platforms/android/) for Android and [here](https://cordova.apache.org/docs/en/7.x/guide/platforms/ios/) for iOS.
+
+Install Ionic with: `npm install -g cordova ionic`
+
+* To install the dependencies and plugins used in your project, run the following command: `ionic state restore`
+
+If you're new to Ionic, [here](https://ionicframework.com/docs/intro/tutorial/) is a great tutorial for getting started.
+
+Install the cordova plugins you may need for your project.
 
 ## API Reference
 
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
+License plate recognition is powered by [openalpr](http://www.openalpr.com/cloud-api.html).
+
+Google Maps (API [here](https://developers.google.com/maps/documentation/javascript/adding-a-google-map)) and geolocation integration was guided by [this](https://www.joshmorony.com/ionic-2-how-to-use-google-maps-geolocation-video-tutorial/) tutorial.
+
+Firebase integration (API [here](https://firebase.google.com/docs/reference/js/)) was guided by [this](https://www.joshmorony.com/building-a-crud-ionic-2-application-with-firebase-angularfire/) tutorial.
 
 ## Tests
 
-Describe and show how to run the tests with code examples.
+To constantly view changes, use the following command in your terminal: `ionic run ios -l -c` (iOS platform example)
+
+* `-l` is `livereload` which allows you to view changes that automatically update in the app without having to constantly stop and start the `ionic run` command.
+* `-c` is `console.log` which allows you to view `console.log` statements for debugging purposes.
 
 ## Contributors
 
-Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
+Feel free to contribute to PicFix!
 
-## License
+**Admin:** Sam Cochrane (samueldc@uw.edu)
 
-A short snippet describing the license (MIT, Apache, etc.)
+**Support:** Marisa Nanakul (mnanakul@uw.edu)

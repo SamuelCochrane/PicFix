@@ -6,9 +6,15 @@ PicFix makes the reporting process faster and easier by collecting the informati
 
 Technologies such as image recognition and GPS location services scrape the necessary information from the photo and are used to autofill the form for the user. Instead of having to manually enter information in every form field, users only have to look over the report and submit.
 
-[![PicFix video](https://img.youtube.com/vi/ZWE0SiLXhxw/0.jpg)](https://www.youtube.com/watch?v=ZWE0SiLXhxw&feature=youtu.be)
+## Project Explainer Video
+[![](https://img.youtube.com/vi/ZWE0SiLXhxw/0.jpg)](https://www.youtube.com/watch?v=ZWE0SiLXhxw&feature=youtu.be)
 
-(GIF here)
+## GIF Demonstration of Submitting a Report
+![](imgs/fullReport.gif)
+
+## GIF Demonstration of Viewing my Reports
+![](imgs/myReports.gif)
+
 
 ## Leveraged Frameworks
 
@@ -42,7 +48,10 @@ License plate recognition is powered by [openalpr](http://www.openalpr.com/cloud
 
 Google Maps (API [here](https://developers.google.com/maps/documentation/javascript/adding-a-google-map)) and geolocation integration was guided by [this](https://www.joshmorony.com/ionic-2-how-to-use-google-maps-geolocation-video-tutorial/) tutorial.
 
+
 Firebase integration (API [here](https://firebase.google.com/docs/reference/js/)) was guided by [this](https://www.joshmorony.com/building-a-crud-ionic-2-application-with-firebase-angularfire/) tutorial.
+
+We have included our API keys in our existing project but they may not work in the future so please acquire and use your own if you run into issues.
 
 ## Tests
 

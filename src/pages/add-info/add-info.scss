@@ -1,10 +1,9 @@
 .ios, .md {
   page-add-info {
-
     .scroll {
       height: 50%
     }
-
+    
     #map {
       width: 50%;
       height: 31.5vh;
@@ -18,16 +17,15 @@
   }
 
   #content {
-     margin-top: 0px;
-     background-color: color($colors, darkBlue);
-     text-align: center;
+    margin-top: 0px;
+    background-color: color($colors, darkBlue);
+    text-align: center;
   }
 
   #box {
-  	background-color: transparent;
-  	color: white;
+    background-color: transparent;
+    color: white;
     border: 1px solid white;
-
   }
 
   #submit {
@@ -38,9 +36,6 @@
     padding-top: 30px;
     padding-left: 25px;
     padding-right: 25px;
-
-
-
   }
 
   #label{
@@ -57,8 +52,8 @@
   }
 
   .no-scroll .scroll-content {
-     overflow: hidden;
-}
+    overflow: hidden;
+  }
 
 
 }

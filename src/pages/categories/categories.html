@@ -1,43 +1,35 @@
-<ion-header>
-  <!--<ion-navbar>
-    <ion-title>Categories</ion-title>
-  </ion-navbar>-->
-</ion-header>
+<ion-header></ion-header>
 
 <ion-content id = "content">
   <h2>Categories</h2>
 
   <div>
-      <button ion-button large icon-left id="potholesButton" (click) = "goToCamera('pothole')" >
+    <button ion-button large icon-left id="potholesButton" (click) = "goToCamera('pothole')" >
       <div>
         <img id = "potholeImg" src = 'assets/imgs/Pothole Filled-50.png'>
         <br>
         <label>Potholes</label>
       </div>
-      </button>
+    </button>
 
-      <button ion-button icon-left large id="parkedCarsButton" (click) = "goToCamera('car')" >
+    <button ion-button icon-left large id="parkedCarsButton" (click) = "goToCamera('car')" >
       <div>
         <img id = "carImg" src = 'assets/imgs/Car Filled-50.png'>
         <br>
         <label>Illegally <br> Parked Cars</label>
       </div>
-      </button>
+    </button>
 
 
 
-      <button ion-button icon-left large id="moreSoonButton" disabled="true">
+    <button ion-button icon-left large id="moreSoonButton" disabled="true">
       <div>
         <img id = "carImg" src = 'assets/imgs/Nothing Filled-50.png'>
         <br>
         <label>More <br> Coming Soon!</label>
       </div>
-      </button>
+    </button>
 
-    </div>
- <!--  <button ion-button icon-left id="descriptionsButton" (click) = goToDescriptions() >
-    <ion-icon name="paper"></ion-icon>
-    Category Descriptions
-  </button><br> -->
+  </div>
 
 </ion-content>

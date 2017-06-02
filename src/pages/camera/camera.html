@@ -1,42 +1,24 @@
-<!--
-  Generated template for the Camera page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-</ion-header>
-
-
+<ion-header></ion-header>
 
 <ion-content class="no-scroll" id ="ion-content">
 
-<img id ="overlayImg" src = ""
- width="100%" align="top">
-
-  <!-- <div class="my-overlay" padding [hidden]="overlayHidden">
-    <button full (click)="hideOverlay()">Click me</button>
-</div> -->
-
-<div id="buttonContainer">
-
-  <button ion-button icon-only (click) = switchCamera()  id="buttonSwitchCamera" >
-  	<ion-icon name="reverse-camera"></ion-icon>
-  </button>
-
-  <button ion-button icon-only (click) = takePicture()  id="buttonTakePhoto">
-  	<ion-icon id= "camera" name="camera"></ion-icon>
-  </button>
-
-  <button ion-button icon-only (click) = toggleFlash() id="buttonToggleFlash">
-  	<ion-icon name="flash"></ion-icon>
-  </button>
-
-</div>
+  <img id ="overlayImg" src = "" width="100%" align="top">
 
 
+  <div id="buttonContainer">
 
+    <button ion-button icon-only (click) = switchCamera()  id="buttonSwitchCamera" >
+      <ion-icon name="reverse-camera"></ion-icon>
+    </button>
 
+    <button ion-button icon-only (click) = takePicture()  id="buttonTakePhoto">
+      <ion-icon id= "camera" name="camera"></ion-icon>
+    </button>
+
+    <button ion-button icon-only (click) = toggleFlash() id="buttonToggleFlash">
+     <ion-icon name="flash"></ion-icon>
+    </button>
+
+  </div>
 
 </ion-content>

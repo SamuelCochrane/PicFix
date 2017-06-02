@@ -8,7 +8,7 @@ import { CameraPage } from '../camera/camera';
 import { FormPage } from '../form/form';
 import { ProfilePage } from '../profile/profile';
 
-
+/* DEPRECATED, APP NO LONGER USES TABS */
 @Component({
   templateUrl: 'tabs.html'
 })

@@ -9,10 +9,9 @@ import { CameraPage } from '../camera/camera';
 
 
 /*
-  Generated class for the CameraConfirm page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
+  This page displays the current image stored in the report.
+  From there the user can 'confirm' the image and simply go back to where they were before,
+  or 'retake' the image to be popped all the way back to the Camera. (note this will clear their report)  
 */
 @Component({
   selector: 'page-camera-confirm',
@@ -26,43 +25,26 @@ export class CameraConfirmPage {
     this.passedFrom = navParams.get("passedFrom");
   }
 
+  /*Called when the page enters focus*/
   ionViewDidEnter() {
-    console.log('ionViewDidLoad CameraConfirmPage');
-
+  
+    //set the src of the image element to the current report image.
     var previewImage = document.getElementById('confirmPicture') as HTMLImageElement;
-
-
 	  var report = this.gVars.getCurrentReport();
     previewImage.src = report.image;
-
-
-    console.log(" end of camera confirm loading");
-    //console.log("huge string:" + report.images);
-
-
-
-
 
   }
 
   confirmImage() {
+    //no changes to make, so lets just return  to where we started
     this.navCtrl.pop();
-   /* var report = this.gVars.getCurrentReport();
-
-     if(report.reportType == 'pothole') { this.navCtrl.push(AddInfoPage); }
-     else if(report.reportType == 'car') { this.navCtrl.push(FormCarPage); }
-*/
   }
 
   retryImage() {
     //pop all the way back to Camera
-
-    
     this.navCtrl.remove(this.navCtrl.getActive().index);
     if(this.passedFrom == "carAddInfo") { this.navCtrl.remove(this.navCtrl.getActive().index - 1); }
   	this.navCtrl.pop();
   }
-
-
 
 }

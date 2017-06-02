@@ -1,0 +1,1 @@
+These photos can be used to test the license-plate reader functionality. Simply open the image on your computer while using the app, and snap a picture. Much easier than going out onto the street to find a license plate.
